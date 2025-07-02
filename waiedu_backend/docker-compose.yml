@@ -1,0 +1,57 @@
+version: '3.8'
+
+services:
+  # Backend API
+  backend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=production
+      - PORT=3000
+    volumes:
+      # Mount public folder for static files (optional)
+      - ./public:/app/public:ro
+    restart: unless-stopped
+    networks:
+      - waiedu-network
+    healthcheck:
+      test: ["CMD", "wget", "--no-verbose", "--tries=1", "--spider", "http://localhost:3000"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+
+  # # PostgreSQL Database (uncomment when needed)
+  # postgres:
+  #   image: postgres:15-alpine
+  #   environment:
+  #     POSTGRES_DB: waiedu
+  #     POSTGRES_USER: waiedu_user
+  #     POSTGRES_PASSWORD: waiedu_password
+  #   ports:
+  #     - "5432:5432"
+  #   volumes:
+  #     - postgres_data:/var/lib/postgresql/data
+  #     - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+  #   restart: unless-stopped
+  #   networks:
+  #     - waiedu-network
+
+  # # Redis Cache (uncomment when needed)
+  # redis:
+  #   image: redis:7-alpine
+  #   ports:
+  #     - "6379:6379"
+  #   restart: unless-stopped
+  #   networks:
+  #     - waiedu-network
+
+networks:
+  waiedu-network:
+    driver: bridge
+
+# volumes:
+#   postgres_data: 

@@ -1,0 +1,127 @@
+# ===================================================================
+# File và thư mục được tạo bởi hệ điều hành
+# ===================================================================
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# ===================================================================
+# Cấu hình của các trình soạn thảo (IDE)
+# ===================================================================
+# VS Code
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+
+# Android Studio / IntelliJ
+.idea/
+*.iml
+*.ipr
+*.iws
+out/
+gen/
+
+# ===================================================================
+# File log, cache và các file tạm
+# ===================================================================
+*.log
+logs
+*.tmp
+*.temp
+*.swp
+*.swo
+
+# ===================================================================
+# Thư mục chứa các gói phụ thuộc (Dependencies)
+# ===================================================================
+# Dart & Flutter
+.pub-cache/
+.dart_tool/
+
+# Node.js
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# ===================================================================
+# Các thư mục và file được tạo ra khi build project
+# ===================================================================
+build/
+dist/
+*.apk
+*.aab
+*.ipa
+*.app
+
+# Next.js
+.next/
+*/.next/
+
+# ===================================================================
+# Quy tắc riêng cho Flutter và Dart
+# ===================================================================
+.metadata
+.packages
+flutter_export.yaml
+
+# ===================================================================
+# Quy tắc riêng cho Android
+# ===================================================================
+# Gradle - Large files that should be auto-downloaded
+.gradle/
+gradle/
+gradle-*.zip
+gradle-*-bin.zip  
+gradle-*-all.zip
+*/gradle-*.zip
+*/android/gradle-*.zip
+*/android/gradle-*-bin.zip
+*/android/gradle-*-all.zip
+captures/
+local.properties
+*~
+
+# ===================================================================
+# Quy tắc riêng cho iOS
+# ===================================================================
+# CocoaPods
+ios/Pods/
+ios/Podfile.lock
+ios/.symlinks/
+ios/Flutter/Pods/
+ios/Flutter/.symlinks/
+
+# ===================================================================
+# Các file nhạy cảm, khóa và biến môi trường
+# ===================================================================
+*.env
+.env
+.env.*
+!.env.example
+
+# Google Services
+google-services.json
+GoogleService-Info.plist
+
+# Keystore files
+*.jks
+*.keystore
+*.pem
+*.p12
+*.cer
+
+# ===================================================================
+# Large files that caused GitHub issues
+# ===================================================================
+# Exclude any large files
+waiedu_student/
+client_staff/
+*.tar.gz
+*.zip
