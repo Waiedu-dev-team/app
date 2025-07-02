@@ -35,8 +35,14 @@ async function bootstrap() {
     allowedHeaders: 'Content-Type, Accept, Authorization',
   });
 
-  await app.listen(process.env.PORT ?? 3000);
-  console.log(`🚀 Application is running on: http://localhost:${process.env.PORT ?? 3000}`);
-  console.log(`📚 Swagger API docs available at: http://localhost:${process.env.PORT ?? 3000}/api-docs`);
+  const port = process.env.PORT ?? 3000;
+  const host = '0.0.0.0'; // Listen on all network interfaces
+  
+  await app.listen(port, host);
+  
+  console.log(`🚀 Application is running on: http://${host}:${port}`);
+  console.log(`🌐 Server accessible from any IP on port ${port}`);
+  console.log(`📚 Swagger API docs available at: http://localhost:${port}/api-docs`);
+  console.log(`🔧 To access from another machine, use: http://YOUR_MACHINE_IP:${port}`);
 }
 bootstrap();

@@ -316,6 +316,16 @@
             <button onclick="loadUsers()" class="btn" style="margin-bottom: 20px;">🔄 Tải lại danh sách</button>
             <div id="usersList" class="users-list"></div>
         </div>
+
+        <div class="card">
+            <h2 style="margin-bottom: 20px; color: #1e293b;">🏢 Danh Sách Khách Hàng</h2>
+            <div style="display: flex; gap: 15px; margin-bottom: 20px; flex-wrap: wrap;">
+                <button onclick="loadCustomers()" class="btn">🔄 Tải lại danh sách</button>
+                <button onclick="loadCustomerStats()" class="btn" style="background: linear-gradient(135deg, #10b981 0%, #059669 100%);">📊 Thống kê</button>
+            </div>
+            <div id="customersList" class="users-list"></div>
+            <div id="customersStats" style="margin-top: 20px; display: none;"></div>
+        </div>
     </div>
 
     <script>
@@ -458,8 +468,121 @@
             }
         }
 
-        // Load users when page loads
-        document.addEventListener('DOMContentLoaded', loadUsers);
+        // Load customers list
+        async function loadCustomers() {
+            const customersList = document.getElementById('customersList');
+            customersList.innerHTML = '<p>Đang tải khách hàng...</p>';
+            
+            try {
+                const response = await fetch(`${API_BASE}/customers`);
+                const customers = await response.json();
+                
+                if (response.ok && Array.isArray(customers)) {
+                    if (customers.length === 0) {
+                        customersList.innerHTML = '<p style="text-align: center; color: #64748b; font-style: italic;">Chưa có khách hàng nào</p>';
+                        return;
+                    }
+                    
+                    customersList.innerHTML = customers.map(customer => `
+                        <div class="user-card">
+                            <div class="user-info">
+                                <div class="info-item">
+                                    <span class="info-label">ID</span>
+                                    <span class="info-value">${customer.id}</span>
+                                </div>
+                                <div class="info-item">
+                                    <span class="info-label">Email</span>
+                                    <span class="info-value">${customer.email}</span>
+                                </div>
+                                <div class="info-item">
+                                    <span class="info-label">Họ tên</span>
+                                    <span class="info-value">${customer.fullName}</span>
+                                </div>
+                                <div class="info-item">
+                                    <span class="info-label">Lĩnh vực</span>
+                                    <span class="info-value">
+                                        <span class="badge" style="background: #fef3c7; color: #92400e;">${customer.field}</span>
+                                    </span>
+                                </div>
+                                <div class="info-item">
+                                    <span class="info-label">Mã số thuế</span>
+                                    <span class="info-value">${customer.taxCode}</span>
+                                </div>
+                                <div class="info-item">
+                                    <span class="info-label">Địa chỉ</span>
+                                    <span class="info-value">${customer.district}, ${customer.city}</span>
+                                </div>
+                                <div class="info-item">
+                                    <span class="info-label">Mật khẩu mặc định</span>
+                                    <span class="info-value" style="font-family: monospace; background: #f1f5f9; padding: 2px 6px; border-radius: 4px;">${customer.defaultPassword}</span>
+                                </div>
+                                <div class="info-item">
+                                    <span class="info-label">Ngày tạo</span>
+                                    <span class="info-value">${new Date(customer.createdAt).toLocaleString('vi-VN')}</span>
+                                </div>
+                            </div>
+                        </div>
+                    `).join('');
+                } else {
+                    customersList.innerHTML = '<p style="color: #ef4444;">Không thể tải danh sách khách hàng</p>';
+                }
+            } catch (error) {
+                customersList.innerHTML = `<p style="color: #ef4444;">Lỗi: ${error.message}</p>`;
+            }
+        }
+
+        // Load customer statistics
+        async function loadCustomerStats() {
+            const customersStats = document.getElementById('customersStats');
+            customersStats.style.display = 'block';
+            customersStats.innerHTML = '<p>Đang tải thống kê...</p>';
+            
+            try {
+                const [fieldResponse, locationResponse] = await Promise.all([
+                    fetch(`${API_BASE}/customers/stats/by-field`),
+                    fetch(`${API_BASE}/customers/stats/by-location`)
+                ]);
+                
+                const fieldStats = await fieldResponse.json();
+                const locationStats = await locationResponse.json();
+                
+                if (fieldResponse.ok && locationResponse.ok) {
+                    customersStats.innerHTML = `
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px;">
+                            <div style="background: #f8fafc; padding: 20px; border-radius: 12px; border: 1px solid #e2e8f0;">
+                                <h3 style="margin-bottom: 15px; color: #1e293b;">📊 Thống kê theo lĩnh vực</h3>
+                                ${Object.entries(fieldStats).map(([field, count]) => `
+                                    <div style="display: flex; justify-content: space-between; margin-bottom: 8px; padding: 8px; background: white; border-radius: 6px;">
+                                        <span style="font-weight: 500;">${field}</span>
+                                        <span style="background: #3b82f6; color: white; padding: 2px 8px; border-radius: 12px; font-size: 0.8rem; font-weight: 600;">${count}</span>
+                                    </div>
+                                `).join('')}
+                            </div>
+                            
+                            <div style="background: #f8fafc; padding: 20px; border-radius: 12px; border: 1px solid #e2e8f0;">
+                                <h3 style="margin-bottom: 15px; color: #1e293b;">🌍 Thống kê theo địa điểm</h3>
+                                ${Object.entries(locationStats).map(([location, count]) => `
+                                    <div style="display: flex; justify-content: space-between; margin-bottom: 8px; padding: 8px; background: white; border-radius: 6px;">
+                                        <span style="font-weight: 500;">${location}</span>
+                                        <span style="background: #10b981; color: white; padding: 2px 8px; border-radius: 12px; font-size: 0.8rem; font-weight: 600;">${count}</span>
+                                    </div>
+                                `).join('')}
+                            </div>
+                        </div>
+                    `;
+                } else {
+                    customersStats.innerHTML = '<p style="color: #ef4444;">Không thể tải thống kê khách hàng</p>';
+                }
+            } catch (error) {
+                customersStats.innerHTML = `<p style="color: #ef4444;">Lỗi: ${error.message}</p>`;
+            }
+        }
+
+        // Load users and customers when page loads
+        document.addEventListener('DOMContentLoaded', () => {
+            loadUsers();
+            loadCustomers();
+        });
     </script>
 </body>
 </html> 

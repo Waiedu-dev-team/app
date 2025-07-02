@@ -16,6 +16,8 @@ export default function HomePage() {
   const [tasks, setTasks] = useState<Task[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  
+
 
   useEffect(() => {
     const fetchTasks = async () => {
@@ -51,6 +53,8 @@ export default function HomePage() {
     "Chương trình training kỹ năng mới sắp diễn ra.",
   ];
 
+
+
   const handleTaskClick = (id: string) => {
     router.push(`/tasks/${id}`);
   };
@@ -68,6 +72,8 @@ export default function HomePage() {
     e.stopPropagation();
     alert(`Xóa thông báo ${id}`);
   };
+
+
 
   // Get recent tasks for dashboard
   const recentTasks = tasks.slice(0, 5);
@@ -101,10 +107,10 @@ export default function HomePage() {
         </div>
 
         {/* Main Content */}
-        <main className="max-w-8xl mx-auto px-6 sm:px-8 lg:px-10 py-8 min-h-screen">
+        <main className="max-w-8xl mx-auto px-6 sm:px-8 lg:px-10 py-8 min-h-screen overflow-visible relative">
             <h1 className="text-3xl font-bold text-gray-800 mb-8">Chào mừng trở lại, {user?.fullName}!</h1>
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8 overflow-visible">
-            <div className="bg-white rounded-lg p-8 min-h-[500px] overflow-visible">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8 overflow-visible relative">
+            <div className="bg-white rounded-lg p-8 min-h-[550px] overflow-visible relative">
               <div className="flex justify-between items-center mb-6">
                 <h2 className="text-xl font-bold text-gray-900 flex items-center">
                   <div className="w-8 h-8 bg-blue-100 rounded-lg flex items-center justify-center mr-3">
@@ -129,11 +135,11 @@ export default function HomePage() {
               {isLoading && <p className="text-center text-gray-500">Đang tải công việc...</p>}
               {error && <p className="text-center text-red-500">Lỗi: {error}</p>}
               {!isLoading && !error && (
-                <div className="space-y-1.5 max-h-80 overflow-y-auto overflow-x-visible scrollbar-hide -mx-2">
+                <div className="space-y-1.5 max-h-[480px] overflow-y-auto overflow-x-visible scrollbar-hide -mx-2 mt-2.5 relative">
                   {recentTasks.map((task, index) => {
                     const isOverdue = new Date(task.dueDate) < new Date() && task.status !== 'done' && task.status !== 'cancelled';
                     return (
-                      <div key={task.id} className={`group relative p-1.5 mx-2 rounded-md border cursor-pointer transition-all duration-300 hover:shadow-md hover:scale-[1.01] hover:z-20 ${task.status === 'todo' || task.status === 'in_progress' ? 'border-blue-200 bg-gradient-to-r from-blue-50 to-indigo-50 hover:from-blue-100 hover:to-indigo-100' : 'border-gray-200 bg-white hover:bg-gray-50'}`} onClick={() => handleTaskClick(String(task.id))}>
+                      <div key={task.id} className={`group relative p-1.5 mx-2 rounded-md border cursor-pointer transition-all duration-300 hover:shadow-lg hover:scale-[1.02] hover:z-50 z-10 ${task.status === 'todo' || task.status === 'in_progress' ? 'border-blue-200 bg-gradient-to-r from-blue-50 to-indigo-50 hover:from-blue-100 hover:to-indigo-100' : 'border-gray-200 bg-white hover:bg-gray-50'}`} onClick={() => handleTaskClick(String(task.id))}>
                         <div className="absolute -top-1 -left-1 w-3.5 h-3.5 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full flex items-center justify-center text-xs font-bold text-white z-10">
                           {index + 1}
                         </div>
@@ -227,8 +233,8 @@ export default function HomePage() {
                 </div>
               )}
             </div>
-            <div className="grid grid-rows-2 gap-8 overflow-visible">
-              <div className="bg-white rounded-lg p-8 overflow-visible">
+            <div className="grid grid-rows-2 gap-8 overflow-visible relative">
+              <div className="bg-white rounded-lg p-8 min-h-[260px] overflow-visible relative">
                 <div className="flex justify-between items-center mb-6">
                   <h3 className="text-xl font-bold text-gray-900 flex items-center">
                     <div className="w-8 h-8 bg-orange-100 rounded-lg flex items-center justify-center mr-3">
@@ -252,9 +258,9 @@ export default function HomePage() {
                     Xem tất cả
                   </Button>
                 </div>
-                <div className="space-y-3 max-h-64 overflow-y-auto overflow-x-visible scrollbar-hide -mx-2">
+                <div className="space-y-3 max-h-80 overflow-y-auto overflow-x-visible scrollbar-hide -mx-2 relative">
                   {notifications.slice(0, 5).map((notification, index) => (
-                    <div key={notification.id} className={`group relative p-3 mx-2 rounded-lg border cursor-pointer transition-all duration-300 hover:shadow-md hover:scale-[1.01] hover:z-20 ${!notification.isRead ? 'border-orange-200 bg-gradient-to-r from-orange-50 to-yellow-50 hover:from-orange-100 hover:to-yellow-100' : 'border-gray-200 bg-white hover:bg-gray-50'}`} onClick={() => handleNotificationClick(notification.id)}>
+                    <div key={notification.id} className={`group relative p-3 mx-2 rounded-lg border cursor-pointer transition-all duration-300 hover:shadow-lg hover:scale-[1.02] hover:z-50 z-10 ${!notification.isRead ? 'border-orange-200 bg-gradient-to-r from-orange-50 to-yellow-50 hover:from-orange-100 hover:to-yellow-100' : 'border-gray-200 bg-white hover:bg-gray-50'}`} onClick={() => handleNotificationClick(notification.id)}>
                       <div className="absolute -top-1 -left-1 w-5 h-5 bg-gradient-to-r from-orange-500 to-red-500 rounded-full flex items-center justify-center text-xs font-bold text-white z-10">
                         {index + 1}
                       </div>
@@ -310,7 +316,7 @@ export default function HomePage() {
                   </div>
                 )}
               </div>
-              <div className="bg-white rounded-lg p-6">
+              <div className="bg-white rounded-lg p-6 min-h-[270px] overflow-visible relative">
                 <h3 className="text-xl font-bold text-gray-900 mb-4 flex items-center">
                   <div className="w-8 h-8 bg-green-100 rounded-lg flex items-center justify-center mr-3">
                     <svg className="w-5 h-5 text-green-600" fill="currentColor" viewBox="0 0 20 20">
@@ -361,6 +367,19 @@ export default function HomePage() {
                       <div className="text-left">
                         <div className="font-medium text-gray-900">Xem Thống Kê</div>
                         <div className="text-xs text-gray-500">Báo cáo và phân tích</div>
+                      </div>
+                    </div>
+                  </Button>
+                  <Button variant="outline" className="w-full justify-start p-4 h-auto hover:bg-green-50 hover:border-green-300 transition-all duration-200" onClick={() => router.push('/customers/create')}>
+                    <div className="flex items-center">
+                      <div className="w-8 h-8 bg-green-100 rounded-lg flex items-center justify-center mr-3">
+                        <svg className="w-4 h-4 text-green-600" fill="currentColor" viewBox="0 0 20 20">
+                          <path d="M8 9a3 3 0 100-6 3 3 0 000 6zM8 11a6 6 0 016 6H2a6 6 0 016-6zM16 7a1 1 0 10-2 0v1h-1a1 1 0 100 2h1v1a1 1 0 102 0v-1h1a1 1 0 100-2h-1V7z" />
+                        </svg>
+                      </div>
+                      <div className="text-left">
+                        <div className="font-medium text-gray-900">Tạo Tài Khoản Khách Hàng</div>
+                        <div className="text-xs text-gray-500">Thêm khách hàng doanh nghiệp</div>
                       </div>
                     </div>
                   </Button>
@@ -472,6 +491,8 @@ export default function HomePage() {
               </div>
             </div>
           </div>
+
+
         </main>
       </div>
     </ProtectedRoute>

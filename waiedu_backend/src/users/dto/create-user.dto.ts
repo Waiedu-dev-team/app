@@ -5,7 +5,8 @@ export enum UserRole {
   ADMIN = 'admin',
   MANAGER = 'manager',
   STAFF = 'staff',
-  USER = 'user'
+  USER = 'user',
+  CUSTOMER = 'customer'
 }
 
 export enum Department {

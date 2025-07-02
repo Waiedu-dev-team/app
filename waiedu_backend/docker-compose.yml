@@ -7,10 +7,11 @@ services:
       context: .
       dockerfile: Dockerfile
     ports:
-      - "3000:3000"
+      - "0.0.0.0:3000:3000"
     environment:
       - NODE_ENV=production
       - PORT=3000
+      - HOST=0.0.0.0
     volumes:
       # Mount public folder for static files (optional)
       - ./public:/app/public:ro
@@ -32,7 +33,7 @@ services:
   #     POSTGRES_USER: waiedu_user
   #     POSTGRES_PASSWORD: waiedu_password
   #   ports:
-  #     - "5432:5432"
+  #     - "0.0.0.0:5432:5432"
   #   volumes:
   #     - postgres_data:/var/lib/postgresql/data
   #     - ./init.sql:/docker-entrypoint-initdb.d/init.sql
@@ -44,7 +45,7 @@ services:
   # redis:
   #   image: redis:7-alpine
   #   ports:
-  #     - "6379:6379"
+  #     - "0.0.0.0:6379:6379"
   #   restart: unless-stopped
   #   networks:
   #     - waiedu-network
