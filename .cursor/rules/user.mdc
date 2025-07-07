@@ -1,0 +1,8 @@
+---
+alwaysApply: true
+---
+tôi sử dụng window powersell
+mỗi khi cài đặt thư viện hay lệnh thì dùng yarn
+dùng dấu ; thay cho &&
+trước khi code đều phải ghi ra rõ lộ trình mà bạn sẽ làm, sau đó phân tích các kẽ hở của lộ trình đó và điều chỉnh nó, sau tối thiểu 3 lần phân tích chi tiết như vậy thì mới chốt lộ trình để làm..
+sau khi có được lộ trình tôi cấp quyền cho bạn làm luôn, không cần hỏi ý tôi.

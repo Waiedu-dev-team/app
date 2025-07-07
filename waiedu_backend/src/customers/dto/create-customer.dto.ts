@@ -1,5 +1,5 @@
 import { ApiProperty } from '@nestjs/swagger';
-import { IsEmail, IsNotEmpty, IsString, MinLength, IsEnum } from 'class-validator';
+import { IsEmail, IsNotEmpty, IsString, MinLength, IsEnum, IsOptional } from 'class-validator';
 import { BusinessField } from '../entities/customer.entity';
 
 export class CreateCustomerDto {
@@ -68,4 +68,14 @@ export class CreateCustomerDto {
   @IsString({ message: 'Quận/Huyện phải là chuỗi ký tự' })
   @IsNotEmpty({ message: 'Quận/Huyện không được để trống' })
   district: string;
+
+  @ApiProperty({
+    example: 'Trường THPT Chu Văn An',
+    description: 'Trường học của khách hàng (không bắt buộc)',
+    type: String,
+    required: false
+  })
+  @IsOptional()
+  @IsString({ message: 'Tên trường học phải là chuỗi ký tự' })
+  school?: string;
 } 

@@ -44,6 +44,7 @@ export class CustomersService {
       taxCode: createCustomerDto.taxCode,
       city: createCustomerDto.city,
       district: createCustomerDto.district,
+      school: createCustomerDto.school,
       createdAt: new Date(),
       updatedAt: new Date(),
       password: hashedPassword // Store hashed for security
@@ -87,17 +88,13 @@ export class CustomersService {
    * @returns Customer hoặc undefined
    */
   async findOne(id: string): Promise<Customer | undefined> {
-    const customer = this.customers.find(customer => customer.id === id);
-    if (!customer) return undefined;
-    
-    const { password, ...customerWithoutPassword } = customer;
-    return customerWithoutPassword;
+    return this.customers.find(customer => customer.id === id);
   }
 
   /**
-   * Lấy khách hàng theo email (bao gồm password - dùng cho authentication)
-   * @param email - Email của customer
-   * @returns Customer với password hoặc undefined
+   * Tìm khách hàng bằng email
+   * @param email - Email của khách hàng
+   * @returns Customer hoặc undefined
    */
   async findByEmail(email: string): Promise<Customer | undefined> {
     return this.customers.find(customer => customer.email === email);

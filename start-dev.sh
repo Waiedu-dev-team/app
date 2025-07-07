@@ -116,36 +116,29 @@ echo ""
 create_env_file
 
 echo ""
-echo "🐳 STEP 2: Backend Setup (Docker)"
+echo "🚀 STEP 2: Backend Setup (Local)"
 echo "================================="
 
-# Ensure we're in the right directory
+# Start Backend (waiedu_backend)
+echo "🚀 Starting backend development server..."
 cd waiedu_backend
 
-# Build and start backend
-echo "📦 Building Docker image..."
-sudo docker-compose build
-
-if [ $? -eq 0 ]; then
-    echo "✅ Docker build successful!"
-    echo "🚀 Starting backend container..."
-    sudo docker-compose up -d
-    
-    if [ $? -eq 0 ]; then
-        echo "✅ Backend container started successfully!"
-    else
-        echo "❌ Failed to start backend container"
-        exit 1
-    fi
-else
-    echo "❌ Docker build failed"
-    exit 1
+# Check if node_modules exists, if not install dependencies
+if [ ! -d "node_modules" ]; then
+    echo "📦 Installing backend dependencies with Yarn..."
+    yarn
 fi
 
+# Start backend in background
+yarn start:dev > ../logs/backend.log 2>&1 &
+BACKEND_PID=$!
+echo $BACKEND_PID > ../logs/backend.pid
+
 cd ..
+echo "✅ Backend server starting on port 3000..."
 
 echo ""
-echo "⚛️  STEP 3: Frontend Setup (Next.js)"
+echo "⚛️  STEP 3: Frontend Setup (Yarn)"
 echo "===================================="
 
 # Create logs directory
@@ -157,12 +150,12 @@ cd waiedu_staff
 
 # Check if node_modules exists, if not install dependencies
 if [ ! -d "node_modules" ]; then
-    echo "📦 Installing staff frontend dependencies..."
-    npm install
+    echo "📦 Installing staff frontend dependencies with Yarn..."
+    yarn
 fi
 
 # Start staff frontend in background
-PORT=3001 npm run dev > ../logs/frontend-staff.log 2>&1 &
+PORT=3001 yarn dev > ../logs/frontend-staff.log 2>&1 &
 FRONTEND_STAFF_PID=$!
 echo $FRONTEND_STAFF_PID > ../logs/frontend-staff.pid
 
@@ -176,12 +169,12 @@ cd client_staff
 
 # Check if node_modules exists, if not install dependencies
 if [ ! -d "node_modules" ]; then
-    echo "📦 Installing client frontend dependencies..."
-    npm install
+    echo "📦 Installing client frontend dependencies with Yarn..."
+    yarn
 fi
 
 # Start client frontend in background
-PORT=3002 npm run dev > ../logs/frontend-client.log 2>&1 &
+PORT=3002 yarn dev > ../logs/frontend-client.log 2>&1 &
 FRONTEND_CLIENT_PID=$!
 echo $FRONTEND_CLIENT_PID > ../logs/frontend-client.pid
 
@@ -208,7 +201,7 @@ echo "🏠 Local Access:"
 echo "   Backend:      http://localhost:3000"
 echo "   Staff App:    http://localhost:3001"
 echo "   Client App:   http://localhost:3002"
-echo "   Swagger API:  http://localhost:3000/api-docs"
+echo "   Swagger API:  http://localhost:3000/api"
 
 if [ -n "$LOCAL_IP" ]; then
     echo ""
@@ -216,7 +209,7 @@ if [ -n "$LOCAL_IP" ]; then
     echo "   Backend:      http://$LOCAL_IP:3000"
     echo "   Staff App:    http://$LOCAL_IP:3001"
     echo "   Client App:   http://$LOCAL_IP:3002"
-    echo "   Swagger API:  http://$LOCAL_IP:3000/api-docs"
+    echo "   Swagger API:  http://$LOCAL_IP:3000/api"
 fi
 
 if [ -n "$PUBLIC_IP" ]; then
@@ -246,11 +239,11 @@ echo "   ngrok http 3001  # For frontend app"
 echo ""
 echo "🔧 Management Commands:"
 echo "======================"
-echo "   View backend logs:       sudo docker-compose -f waiedu_backend/docker-compose.yml logs -f"
+echo "   View backend logs:       tail -f logs/backend.log"
 echo "   View staff frontend:     tail -f logs/frontend-staff.log"
 echo "   View client frontend:    tail -f logs/frontend-client.log"
 echo "   Stop all services:       ./stop-dev.sh"
-echo "   Restart backend:         cd waiedu_backend && sudo docker-compose restart"
+echo "   Restart backend:         (Use Ctrl+C in terminal then ./start-dev.sh)"
 
 echo ""
 echo "🔒 Security Notes:"
@@ -264,10 +257,9 @@ echo "   ⚠️  For internet access: Configure router port forwarding"
 echo ""
 echo "🎉 WAIEDU Development Environment Ready!"
 echo "========================================"
-echo "✨ Backend API: Ready for connections from any IP"
+echo "✨ Backend API: Ready for connections from any IP (Port 3000)"
 echo "✨ Staff App: Running with development features (Port 3001)" 
 echo "✨ Client App: Running with development features (Port 3002)"
-echo "✨ Sharing: Configured for both local and public access"
 echo ""
 echo "🚀 Happy coding! Use ./stop-dev.sh to stop all services."
 

@@ -7,7 +7,8 @@ import {
   HttpStatus,
   ValidationPipe,
   UsePipes,
-  Query
+  Query,
+  NotFoundException
 } from '@nestjs/common';
 import { 
   ApiTags, 
@@ -18,16 +19,25 @@ import {
   ApiCreatedResponse,
   ApiBadRequestResponse,
   ApiConflictResponse,
-  ApiQuery
+  ApiQuery,
+  ApiNotFoundResponse
 } from '@nestjs/swagger';
 import { CustomersService } from './customers.service';
 import { CreateCustomerDto } from './dto/create-customer.dto';
 import { Customer } from './entities/customer.entity';
+import { TeachersService } from '../teachers/teachers.service';
+import { Teacher } from '../teachers/entities/teacher.entity';
+import { SubjectsService } from '../subjects/subjects.service';
+import { Subject } from '../subjects/entities/subject.entity';
 
 @ApiTags('🏢 Customer Management')
 @Controller('customers')
 export class CustomersController {
-  constructor(private readonly customersService: CustomersService) {}
+  constructor(
+    private readonly customersService: CustomersService,
+    private readonly teachersService: TeachersService,
+    private readonly subjectsService: SubjectsService,
+  ) {}
 
   @Post()
   @ApiOperation({ 
@@ -44,10 +54,11 @@ export class CustomersController {
           email: 'contact@techcompany.com',
           fullName: 'Nguyễn Văn CEO',
           defaultPassword: 'tech123456',
-          field: 'technology',
+          field: 'education',
           taxCode: '0123456789',
           city: 'hanoi',
-          district: 'hoankiem'
+          district: 'hoankiem',
+          school: 'Trường THPT Chuyên Hà Nội - Amsterdam'
         }
       },
       'Công ty Tài chính': {
@@ -132,6 +143,35 @@ export class CustomersController {
   })
   async findAll(): Promise<Customer[]> {
     return this.customersService.findAll();
+  }
+
+  @Get(':customerId/teachers')
+  @ApiOperation({ summary: 'Lấy danh sách giáo viên của một khách hàng' })
+  @ApiParam({ name: 'customerId', description: 'ID của khách hàng' })
+  @ApiResponse({ status: 200, description: 'Danh sách giáo viên.', type: [Teacher] })
+  async findTeachersByCustomer(@Param('customerId') customerId: string): Promise<Teacher[]> {
+    return this.teachersService.findByCustomerId(customerId);
+  }
+
+  @Get(':customerId/subjects')
+  @ApiOperation({ summary: 'Lấy danh sách môn học của một khách hàng (bao gồm môn học chung)' })
+  @ApiParam({ name: 'customerId', description: 'ID của khách hàng' })
+  @ApiResponse({ status: 200, description: 'Danh sách môn học.', type: [Subject] })
+  async findSubjectsByCustomer(@Param('customerId') customerId: string): Promise<Subject[]> {
+    return this.subjectsService.findByCustomerId(customerId);
+  }
+
+  @Get('user/:email')
+  @ApiOperation({ summary: 'Lấy thông tin khách hàng bằng email' })
+  @ApiParam({ name: 'email', description: 'Email của khách hàng' })
+  @ApiResponse({ status: 200, description: 'Thông tin khách hàng.', type: Customer })
+  @ApiNotFoundResponse({ description: 'Không tìm thấy khách hàng.' })
+  async findByEmail(@Param('email') email: string): Promise<Customer> {
+    const customer = await this.customersService.findByEmail(email);
+    if (!customer) {
+      throw new NotFoundException(`Không tìm thấy khách hàng với email ${email}`);
+    }
+    return customer;
   }
 
   @Get('stats/by-field')

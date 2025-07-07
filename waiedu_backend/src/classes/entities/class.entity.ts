@@ -3,9 +3,21 @@ import { ApiProperty } from '@nestjs/swagger';
 export class Class {
   @ApiProperty({
     example: '550e8400-e29b-41d4-a716-446655440000',
-    description: 'ID duy nhất của lớp học'
+    description: 'ID của lớp học'
   })
   id: string;
+
+  @ApiProperty({
+    example: 'subj-default-toan',
+    description: 'ID của môn học'
+  })
+  subjectId: string;
+
+  @ApiProperty({
+    example: 'd9b7f5b0-5b9a-4b9c-8b9a-5b9a4b9c8b9a',
+    description: 'ID của giáo viên đứng lớp'
+  })
+  teacherId: string;
 
   @ApiProperty({
     example: 'Lớp 10A1',
@@ -15,7 +27,7 @@ export class Class {
 
   @ApiProperty({
     example: 'Toán học',
-    description: 'Môn học'
+    description: 'Tên môn học'
   })
   subject: string;
 
@@ -24,13 +36,6 @@ export class Class {
     description: 'Tên giáo viên đứng lớp'
   })
   teacherName: string;
-
-  @ApiProperty({
-    example: 'teacher@school.edu.vn',
-    description: 'Email giáo viên',
-    required: false
-  })
-  teacherEmail?: string;
 
   @ApiProperty({
     example: 'Lớp học toán nâng cao dành cho học sinh khá giỏi',

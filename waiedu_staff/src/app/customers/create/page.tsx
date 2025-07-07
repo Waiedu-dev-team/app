@@ -1,10 +1,16 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import { Button } from '@/components/ui/button';
 import ProtectedRoute from '@/components/auth/ProtectedRoute';
 import Header from '@/components/layout/Header';
+
+interface School {
+  id: string;
+  name: string;
+  city: string;
+}
 
 export default function CreateCustomerPage() {
   const router = useRouter();
@@ -17,9 +23,29 @@ export default function CreateCustomerPage() {
     field: '',
     taxCode: '',
     city: '',
-    district: ''
+    district: '',
+    school: '',
   });
   const [isCreatingCustomer, setIsCreatingCustomer] = useState(false);
+  const [schools, setSchools] = useState<School[]>([]);
+
+  useEffect(() => {
+    const fetchSchools = async () => {
+      try {
+        const response = await fetch('http://localhost:3000/schools');
+        if (response.ok) {
+          const data = await response.json();
+          setSchools(data);
+        } else {
+          console.error('Failed to fetch schools');
+        }
+      } catch (error) {
+        console.error('Error fetching schools:', error);
+      }
+    };
+
+    fetchSchools();
+  }, []);
 
   // Data for cities and districts
   const cities = [
@@ -126,7 +152,8 @@ export default function CreateCustomerPage() {
         field: customerForm.field,
         taxCode: customerForm.taxCode,
         city: customerForm.city,
-        district: customerForm.district
+        district: customerForm.district,
+        school: customerForm.school,
       };
 
       console.log('Sending customer data to API:', customerData);
@@ -145,7 +172,7 @@ export default function CreateCustomerPage() {
       if (response.ok) {
         // Success
         console.log('Customer created successfully:', responseData);
-        alert(`Tài khoản khách hàng đã được tạo thành công!\n\nID: ${responseData.id}\nEmail: ${responseData.email}\nTên: ${responseData.fullName}\nLĩnh vực: ${responseData.field}\nMã số thuế: ${responseData.taxCode}\nĐịa chỉ: ${responseData.district}, ${responseData.city}`);
+        alert(`Tài khoản khách hàng đã được tạo thành công!\n\nID: ${responseData.id}\nEmail: ${responseData.email}\nTên: ${responseData.fullName}\nLĩnh vực: ${responseData.field}\nMã số thuế: ${responseData.taxCode}\nĐịa chỉ: ${responseData.district}, ${responseData.city}\nTrường học: ${responseData.school || 'Không có'}`);
         
         // Reset form
         setCustomerForm({
@@ -155,7 +182,8 @@ export default function CreateCustomerPage() {
           field: '',
           taxCode: '',
           city: '',
-          district: ''
+          district: '',
+          school: '',
         });
       } else {
         // API returned error
@@ -394,6 +422,28 @@ export default function CreateCustomerPage() {
                         </select>
                       </div>
 
+                      {/* School Field (Conditional) */}
+                      {customerForm.field === 'education' && (
+                        <div className="md:col-span-2">
+                          <label htmlFor="school" className="block text-sm font-semibold text-gray-700 mb-3">
+                            Trường học (Tùy chọn)
+                          </label>
+                          <select
+                            id="school"
+                            value={customerForm.school}
+                            onChange={(e) => handleCustomerFormChange('school', e.target.value)}
+                            className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-200 bg-white hover:border-blue-300"
+                          >
+                            <option value="">-- Chọn trường học --</option>
+                            {schools.map(school => (
+                              <option key={school.id} value={school.name}>
+                                {school.name}
+                              </option>
+                            ))}
+                          </select>
+                        </div>
+                      )}
+
                       {/* Tax Code */}
                       <div className="md:col-span-2">
                         <label htmlFor="taxCode" className="block text-sm font-semibold text-gray-700 mb-3">
@@ -500,6 +550,14 @@ export default function CreateCustomerPage() {
                               {customerForm.taxCode || '(Chưa nhập)'}
                             </span>
                           </div>
+                          {customerForm.school && (
+                            <div className="flex justify-between">
+                              <span className="font-medium text-gray-600">Trường:</span>
+                              <span className="text-gray-900 font-medium text-right max-w-32 truncate">
+                                {customerForm.school}
+                              </span>
+                            </div>
+                          )}
                           <div className="flex justify-between">
                             <span className="font-medium text-gray-600">Địa chỉ:</span>
                             <span className="text-gray-900 font-medium text-right max-w-32 truncate">
@@ -517,13 +575,13 @@ export default function CreateCustomerPage() {
                         <div className="flex items-center justify-between mb-2">
                           <span className="text-sm font-medium text-gray-600">Tiến độ hoàn thành</span>
                           <span className="text-sm font-bold text-purple-600">
-                            {Math.round((Object.values(customerForm).filter(Boolean).length / 7) * 100)}%
+                            {Math.round((Object.values(customerForm).filter(v => v).length / 7) * 100)}%
                           </span>
                         </div>
                         <div className="w-full bg-gray-200 rounded-full h-2">
                           <div 
                             className="bg-gradient-to-r from-purple-500 to-pink-500 h-2 rounded-full transition-all duration-300"
-                            style={{ width: `${(Object.values(customerForm).filter(Boolean).length / 7) * 100}%` }}
+                            style={{ width: `${Math.round((Object.values(customerForm).filter(v => v).length / 7) * 100)}%` }}
                           />
                         </div>
                       </div>
@@ -565,7 +623,8 @@ export default function CreateCustomerPage() {
                         field: '',
                         taxCode: '',
                         city: '',
-                        district: ''
+                        district: '',
+                        school: '',
                       })}
                       className="w-full py-3 rounded-xl border-2 hover:bg-gray-50"
                     >

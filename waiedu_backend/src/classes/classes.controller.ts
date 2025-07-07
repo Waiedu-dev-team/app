@@ -1,13 +1,25 @@
-import { Controller, Get, Post, Body, Param, ValidationPipe, UsePipes } from '@nestjs/common';
+import { Controller, Get, Post, Body, Param, ValidationPipe, UsePipes, UseInterceptors, UploadedFile } from '@nestjs/common';
 import { ApiTags, ApiOperation, ApiResponse, ApiParam, ApiBody } from '@nestjs/swagger';
 import { ClassesService } from './classes.service';
 import { CreateClassDto } from './dto/create-class.dto';
 import { Class } from './entities/class.entity';
+import { TeachersService } from '../teachers/teachers.service';
+import { Teacher } from '../teachers/entities/teacher.entity';
+import { SubjectsService } from '../subjects/subjects.service';
+import { Subject } from '../subjects/entities/subject.entity';
+import { StudentsService } from '../students/students.service';
+import { Student } from '../students/entities/student.entity';
+import { FileInterceptor } from '@nestjs/platform-express';
 
 @ApiTags('Classes - Quản lý lớp học')
 @Controller('classes')
 export class ClassesController {
-  constructor(private readonly classesService: ClassesService) {}
+  constructor(
+    private readonly classesService: ClassesService,
+    private readonly teachersService: TeachersService,
+    private readonly subjectsService: SubjectsService,
+    private readonly studentsService: StudentsService,
+  ) {}
 
   /**
    * Tạo lớp học mới
@@ -109,6 +121,28 @@ export class ClassesController {
   })
   async findOne(@Param('id') id: string): Promise<Class> {
     return this.classesService.findOne(id);
+  }
+
+  @Get(':classId/students')
+  @ApiOperation({ summary: 'Lấy danh sách học sinh của một lớp' })
+  @ApiParam({ name: 'classId', description: 'ID của lớp học' })
+  @ApiResponse({ status: 200, description: 'Danh sách học sinh.', type: [Student] })
+  async findStudentsByClass(@Param('classId') classId: string): Promise<Student[]> {
+    return this.studentsService.findByClassId(classId);
+  }
+
+  @Post(':classId/students/import')
+  @UseInterceptors(FileInterceptor('file'))
+  @ApiOperation({ summary: 'Import học sinh từ file Excel' })
+  @ApiParam({ name: 'classId', description: 'ID của lớp học để thêm học sinh vào' })
+  async importStudentsFromExcel(
+    @Param('classId') classId: string,
+    @UploadedFile() file: Express.Multer.File,
+  ) {
+    if (!file) {
+      throw new Error('No file uploaded');
+    }
+    return this.studentsService.bulkCreateFromExcel(classId, file);
   }
 
   /**

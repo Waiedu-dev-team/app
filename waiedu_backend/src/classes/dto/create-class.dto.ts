@@ -1,5 +1,5 @@
 import { ApiProperty } from '@nestjs/swagger';
-import { IsNotEmpty, IsString, IsEmail, IsOptional, IsNumber, Min, Max } from 'class-validator';
+import { IsNotEmpty, IsString, IsEmail, IsOptional, IsNumber, Min, Max, IsUUID } from 'class-validator';
 
 export class CreateClassDto {
   @ApiProperty({
@@ -12,32 +12,20 @@ export class CreateClassDto {
   className: string;
 
   @ApiProperty({
-    example: 'Toán học',
-    description: 'Môn học',
-    type: String
+    example: 'subj-default-toan',
+    description: 'ID của môn học'
   })
-  @IsString({ message: 'Môn học phải là chuỗi ký tự' })
-  @IsNotEmpty({ message: 'Môn học không được để trống' })
-  subject: string;
+  @IsString()
+  @IsNotEmpty({ message: 'Vui lòng chọn môn học' })
+  subjectId: string;
 
   @ApiProperty({
-    example: 'Nguyễn Văn Giáo',
-    description: 'Tên giáo viên đứng lớp',
-    type: String
+    example: 'd9b7f5b0-5b9a-4b9c-8b9a-5b9a4b9c8b9a',
+    description: 'ID của giáo viên đứng lớp'
   })
-  @IsString({ message: 'Tên giáo viên phải là chuỗi ký tự' })
-  @IsNotEmpty({ message: 'Tên giáo viên không được để trống' })
-  teacherName: string;
-
-  @ApiProperty({
-    example: 'teacher@school.edu.vn',
-    description: 'Email giáo viên',
-    type: String,
-    required: false
-  })
-  @IsOptional()
-  @IsEmail({}, { message: 'Email giáo viên không hợp lệ' })
-  teacherEmail?: string;
+  @IsUUID()
+  @IsNotEmpty({ message: 'Vui lòng chọn giáo viên' })
+  teacherId: string;
 
   @ApiProperty({
     example: 'Lớp học toán nâng cao dành cho học sinh khá giỏi',

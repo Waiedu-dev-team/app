@@ -19,10 +19,11 @@ export class AuthService {
    * @returns User nếu valid, null nếu invalid
    */
   async validateUser(email: string, password: string): Promise<any> {
-    // Đảm bảo email có @waiedu.com
-    const normalizedEmail = email.includes('@waiedu.com') 
-      ? email 
-      : `${email}@waiedu.com`;
+    // Nếu user nhập không có domain, mặc định là @waiedu.com cho nhân viên nội bộ.
+    // Khách hàng có thể sử dụng email bất kỳ.
+    const normalizedEmail = !email.includes('@')
+      ? `${email}@waiedu.com`
+      : email;
 
     const user = await this.usersService.findByEmail(normalizedEmail);
     

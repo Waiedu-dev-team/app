@@ -512,6 +512,12 @@
                                     <span class="info-label">Địa chỉ</span>
                                     <span class="info-value">${customer.district}, ${customer.city}</span>
                                 </div>
+                                ${customer.school ? `
+                                <div class="info-item">
+                                    <span class="info-label">🏫 Trường học</span>
+                                    <span class="info-value">${customer.school}</span>
+                                </div>
+                                ` : ''}
                                 <div class="info-item">
                                     <span class="info-label">Mật khẩu mặc định</span>
                                     <span class="info-value" style="font-family: monospace; background: #f1f5f9; padding: 2px 6px; border-radius: 4px;">${customer.defaultPassword}</span>

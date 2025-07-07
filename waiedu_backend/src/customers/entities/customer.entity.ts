@@ -64,6 +64,13 @@ export class Customer {
   district: string;
 
   @ApiProperty({
+    example: 'Trường THPT Chu Văn An',
+    description: 'Trường học liên kết (nếu có)',
+    required: false
+  })
+  school?: string;
+
+  @ApiProperty({
     example: '2024-01-07T12:00:00.000Z',
     description: 'Thời gian tạo tài khoản'
   })

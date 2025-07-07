@@ -6,7 +6,8 @@ export enum UserRole {
   MANAGER = 'manager',
   STAFF = 'staff',
   USER = 'user',
-  CUSTOMER = 'customer'
+  CUSTOMER = 'customer',
+  TEACHER = 'teacher',
 }
 
 export enum Department {
@@ -15,7 +16,9 @@ export enum Department {
   FINANCE = 'Finance',
   MARKETING = 'Marketing',
   OPERATIONS = 'Operations',
-  SALES = 'Sales'
+  SALES = 'Sales',
+  EDUCATION = 'Education',
+  CUSTOMER_SERVICE = 'Customer Service',
 }
 
 export class CreateUserDto {
