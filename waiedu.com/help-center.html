@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Help Center - WAIEDU | Support & Documentation</title>
+    <meta name="description" content="WAIEDU Help Center - Find answers, tutorials, and support for our AI-powered AR education platform. Get help with setup, troubleshooting, and best practices.">
+    <meta name="keywords" content="WAIEDU help, support, documentation, tutorials, troubleshooting, FAQ">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://waiedu.live/help-center.html">
+    <meta property="og:title" content="WAIEDU Help Center - Support & Documentation">
+    <meta property="og:description" content="Find answers, tutorials, and support for WAIEDU platform.">
+    <meta property="og:image" content="https://waiedu.live/assets/og-help.jpg">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="./src/styles/main.css">
+</head>
+
+<body class="font-sans antialiased">
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full bg-white/80 backdrop-blur-lg border-b border-gray-200 z-50">
+        <div class="container mx-auto px-6">
+            <div class="flex items-center justify-between h-16">
+                <!-- Logo -->
+                <div class="flex items-center space-x-3">
+                    <div class="w-8 h-8 bg-gradient-to-r from-blue-600 to-purple-600 rounded-lg flex items-center justify-center">
+                        <span class="text-white font-bold text-sm">W</span>
+                    </div>
+                    <span class="text-xl font-bold text-gray-900">WAIEDU</span>
+                </div>
+
+                <!-- Desktop Navigation -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="./index.html" class="text-gray-600 hover:text-blue-600 transition-colors font-medium">Home</a>
+                    <a href="./index.html#about" class="text-gray-600 hover:text-blue-600 transition-colors font-medium">About</a>
+                    <a href="./contact.html" class="text-gray-600 hover:text-blue-600 transition-colors font-medium">Contact</a>
+                    <a href="./help-center.html" class="text-blue-600 font-medium">Help Center</a>
+                </div>
+
+                <!-- Search & CTA -->
+                <div class="hidden md:flex items-center space-x-4">
+                    <div class="relative">
+                        <input type="text" placeholder="Search help articles..." class="w-64 px-4 py-2 pl-10 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent">
+                        <svg class="w-4 h-4 text-gray-400 absolute left-3 top-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                        </svg>
+                    </div>
+                    <a href="./contact.html" class="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-6 py-2 rounded-lg font-semibold hover:shadow-lg transition-all duration-300 transform hover:-translate-y-0.5">
+                        Contact Support
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main class="pt-16">
+        <!-- Header Section -->
+        <section class="py-24 bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50">
+            <div class="container mx-auto px-6">
+                <div class="max-w-4xl mx-auto text-center">
+                    <h1 class="text-5xl lg:text-6xl font-bold text-gray-900 mb-6">
+                        Help 
+                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">
+                            Center
+                        </span>
+                    </h1>
+                    <p class="text-xl text-gray-600 mb-8">
+                        Find answers, tutorials, and support to get the most out of WAIEDU's 
+                        AI-powered AR education platform.
+                    </p>
+                    
+                    <!-- Search Bar -->
+                    <div class="max-w-2xl mx-auto">
+                        <div class="relative">
+                            <input type="text" placeholder="What can we help you with today?" class="w-full px-6 py-4 pl-14 text-lg border border-gray-300 rounded-2xl focus:ring-2 focus:ring-blue-600 focus:border-transparent shadow-lg">
+                            <svg class="w-6 h-6 text-gray-400 absolute left-4 top-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                            </svg>
+                            <button class="absolute right-2 top-2 bg-blue-600 text-white px-6 py-2 rounded-xl font-semibold hover:bg-blue-700 transition-colors">
+                                Search
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Quick Stats -->
+                    <div class="grid md:grid-cols-3 gap-6 mt-12">
+                        <div class="bg-white rounded-2xl p-6 shadow-lg">
+                            <div class="text-3xl font-bold text-blue-600 mb-2">150+</div>
+                            <div class="text-gray-600">Help Articles</div>
+                        </div>
+                        <div class="bg-white rounded-2xl p-6 shadow-lg">
+                            <div class="text-3xl font-bold text-green-600 mb-2">24/7</div>
+                            <div class="text-gray-600">Support Available</div>
+                        </div>
+                        <div class="bg-white rounded-2xl p-6 shadow-lg">
+                            <div class="text-3xl font-bold text-purple-600 mb-2">< 2h</div>
+                            <div class="text-gray-600">Average Response</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Help Categories -->
+        <section class="py-16 bg-white">
+            <div class="container mx-auto px-6">
+                <div class="max-w-6xl mx-auto">
+                    <div class="text-center mb-16">
+                        <h2 class="text-3xl font-bold text-gray-900 mb-4">Browse by Category</h2>
+                        <p class="text-gray-600">Find help articles organized by topic</p>
+                    </div>
+
+                    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                        <!-- Getting Started -->
+                        <div class="bg-gradient-to-br from-blue-50 to-blue-100 rounded-2xl p-6 hover:shadow-lg transition-shadow cursor-pointer">
+                            <div class="w-12 h-12 bg-blue-600 rounded-2xl flex items-center justify-center mb-4">
+                                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
+                                </svg>
+                            </div>
+                            <h3 class="text-xl font-bold text-gray-900 mb-3">Getting Started</h3>
+                            <p class="text-gray-600 mb-4">Learn the basics of setting up and using WAIEDU in your classroom.</p>
+                            <div class="space-y-2">
+                                <a href="#" class="block text-blue-600 hover:text-blue-700 text-sm">• Quick Setup Guide</a>
+                                <a href="#" class="block text-blue-600 hover:text-blue-700 text-sm">• First-Time Login</a>
+                                <a href="#" class="block text-blue-600 hover:text-blue-700 text-sm">• Creating Your First Lesson</a>
+                                <a href="#" class="block text-blue-600 hover:text-blue-700 text-sm">• Student Account Setup</a>
+                            </div>
+                        </div>
+
+                        <!-- For Teachers -->
+                        <div class="bg-gradient-to-br from-green-50 to-green-100 rounded-2xl p-6 hover:shadow-lg transition-shadow cursor-pointer">
+                            <div class="w-12 h-12 bg-green-600 rounded-2xl flex items-center justify-center mb-4">
+                                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197m13.5-5a2.5 2.5 0 11-5 0 2.5 2.5 0 015 0z"/>
+                                </svg>
+                            </div>
+                            <h3 class="text-xl font-bold text-gray-900 mb-3">For Teachers</h3>
+                            <p class="text-gray-600 mb-4">Resources and guides specifically designed for educators.</p>
+                            <div class="space-y-2">
+                                <a href="#" class="block text-green-600 hover:text-green-700 text-sm">• Classroom Management</a>
+                                <a href="#" class="block text-green-600 hover:text-green-700 text-sm">• Lesson Planning</a>
+                                <a href="#" class="block text-green-600 hover:text-green-700 text-sm">• Student Progress Tracking</a>
+                                <a href="#" class="block text-green-600 hover:text-green-700 text-sm">• Assessment Tools</a>
+                            </div>
+                        </div>
+
+                        <!-- For Students -->
+                        <div class="bg-gradient-to-br from-purple-50 to-purple-100 rounded-2xl p-6 hover:shadow-lg transition-shadow cursor-pointer">
+                            <div class="w-12 h-12 bg-purple-600 rounded-2xl flex items-center justify-center mb-4">
+                                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5z"/>
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"/>
+                                </svg>
+                            </div>
+                            <h3 class="text-xl font-bold text-gray-900 mb-3">For Students</h3>
+                            <p class="text-gray-600 mb-4">Help students get the most out of their learning experience.</p>
+                            <div class="space-y-2">
+                                <a href="#" class="block text-purple-600 hover:text-purple-700 text-sm">• Using AR Features</a>
+                                <a href="#" class="block text-purple-600 hover:text-purple-700 text-sm">• Completing Assignments</a>
+                                <a href="#" class="block text-purple-600 hover:text-purple-700 text-sm">• Tracking Your Progress</a>
+                                <a href="#" class="block text-purple-600 hover:text-purple-700 text-sm">• Study Tips & Tricks</a>
+                            </div>
+                        </div>
+
+                        <!-- Technical Support -->
+                        <div class="bg-gradient-to-br from-orange-50 to-orange-100 rounded-2xl p-6 hover:shadow-lg transition-shadow cursor-pointer">
+                            <div class="w-12 h-12 bg-orange-600 rounded-2xl flex items-center justify-center mb-4">
+                                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/>
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
+                                </svg>
+                            </div>
+                            <h3 class="text-xl font-bold text-gray-900 mb-3">Technical Support</h3>
+                            <p class="text-gray-600 mb-4">Troubleshooting and technical assistance for platform issues.</p>
+                            <div class="space-y-2">
+                                <a href="#" class="block text-orange-600 hover:text-orange-700 text-sm">• System Requirements</a>
+                                <a href="#" class="block text-orange-600 hover:text-orange-700 text-sm">• Troubleshooting Guide</a>
+                                <a href="#" class="block text-orange-600 hover:text-orange-700 text-sm">• Browser Compatibility</a>
+                                <a href="#" class="block text-orange-600 hover:text-orange-700 text-sm">• Report a Bug</a>
+                            </div>
+                        </div>
+
+                        <!-- Account & Billing -->
+                        <div class="bg-gradient-to-br from-indigo-50 to-indigo-100 rounded-2xl p-6 hover:shadow-lg transition-shadow cursor-pointer">
+                            <div class="w-12 h-12 bg-indigo-600 rounded-2xl flex items-center justify-center mb-4">
+                                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"/>
+                                </svg>
+                            </div>
+                            <h3 class="text-xl font-bold text-gray-900 mb-3">Account & Billing</h3>
+                            <p class="text-gray-600 mb-4">Manage your account, subscription, and billing information.</p>
+                            <div class="space-y-2">
+                                <a href="#" class="block text-indigo-600 hover:text-indigo-700 text-sm">• Account Settings</a>
+                                <a href="#" class="block text-indigo-600 hover:text-indigo-700 text-sm">• Subscription Plans</a>
+                                <a href="#" class="block text-indigo-600 hover:text-indigo-700 text-sm">• Payment Methods</a>
+                                <a href="#" class="block text-indigo-600 hover:text-indigo-700 text-sm">• Invoices & Receipts</a>
+                            </div>
+                        </div>
+
+                        <!-- Policies & Privacy -->
+                        <div class="bg-gradient-to-br from-gray-50 to-gray-100 rounded-2xl p-6 hover:shadow-lg transition-shadow cursor-pointer">
+                            <div class="w-12 h-12 bg-gray-600 rounded-2xl flex items-center justify-center mb-4">
+                                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
+                                </svg>
+                            </div>
+                            <h3 class="text-xl font-bold text-gray-900 mb-3">Policies & Privacy</h3>
+                            <p class="text-gray-600 mb-4">Learn about our data protection, privacy, and usage policies.</p>
+                            <div class="space-y-2">
+                                <a href="./privacy-policy.html" class="block text-gray-600 hover:text-gray-700 text-sm">• Privacy Policy</a>
+                                <a href="./terms-of-service.html" class="block text-gray-600 hover:text-gray-700 text-sm">• Terms of Service</a>
+                                <a href="#" class="block text-gray-600 hover:text-gray-700 text-sm">• Data Security</a>
+                                <a href="#" class="block text-gray-600 hover:text-gray-700 text-sm">• COPPA Compliance</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Popular Articles -->
+        <section class="py-16 bg-gray-50">
+            <div class="container mx-auto px-6">
+                <div class="max-w-6xl mx-auto">
+                    <div class="text-center mb-12">
+                        <h2 class="text-3xl font-bold text-gray-900 mb-4">Popular Help Articles</h2>
+                        <p class="text-gray-600">Most viewed articles by our users</p>
+                    </div>
+
+                    <div class="grid md:grid-cols-2 gap-8">
+                        <div class="space-y-4">
+                            <h3 class="text-xl font-semibold text-gray-800 mb-4">🔥 Most Popular</h3>
+                            
+                            <div class="bg-white rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow">
+                                <div class="flex items-start justify-between">
+                                    <div class="flex-1">
+                                        <h4 class="text-lg font-semibold text-gray-900 mb-2">How to set up WAIEDU for your classroom</h4>
+                                        <p class="text-gray-600 text-sm mb-3">Complete guide to getting started with WAIEDU, from account creation to your first lesson.</p>
+                                        <div class="flex items-center text-xs text-gray-500">
+                                            <span>📖 5 min read</span>
+                                            <span class="mx-2">•</span>
+                                            <span>👀 2.1k views</span>
+                                        </div>
+                                    </div>
+                                    <span class="bg-green-100 text-green-800 px-2 py-1 rounded-full text-xs font-semibold ml-4">Getting Started</span>
+                                </div>
+                            </div>
+
+                            <div class="bg-white rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow">
+                                <div class="flex items-start justify-between">
+                                    <div class="flex-1">
+                                        <h4 class="text-lg font-semibold text-gray-900 mb-2">Troubleshooting AR display issues</h4>
+                                        <p class="text-gray-600 text-sm mb-3">Common solutions for AR visualization problems and display errors.</p>
+                                        <div class="flex items-center text-xs text-gray-500">
+                                            <span>📖 3 min read</span>
+                                            <span class="mx-2">•</span>
+                                            <span>👀 1.8k views</span>
+                                        </div>
+                                    </div>
+                                    <span class="bg-orange-100 text-orange-800 px-2 py-1 rounded-full text-xs font-semibold ml-4">Technical</span>
+                                </div>
+                            </div>
+
+                            <div class="bg-white rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow">
+                                <div class="flex items-start justify-between">
+                                    <div class="flex-1">
+                                        <h4 class="text-lg font-semibold text-gray-900 mb-2">Creating engaging physics lessons with AR</h4>
+                                        <p class="text-gray-600 text-sm mb-3">Best practices for integrating AR technology into physics curriculum.</p>
+                                        <div class="flex items-center text-xs text-gray-500">
+                                            <span>📖 7 min read</span>
+                                            <span class="mx-2">•</span>
+                                            <span>👀 1.5k views</span>
+                                        </div>
+                                    </div>
+                                    <span class="bg-blue-100 text-blue-800 px-2 py-1 rounded-full text-xs font-semibold ml-4">Teaching</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="space-y-4">
+                            <h3 class="text-xl font-semibold text-gray-800 mb-4">📚 Recently Updated</h3>
+                            
+                            <div class="bg-white rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow">
+                                <div class="flex items-start justify-between">
+                                    <div class="flex-1">
+                                        <h4 class="text-lg font-semibold text-gray-900 mb-2">Student account management guide</h4>
+                                        <p class="text-gray-600 text-sm mb-3">How to create, manage, and monitor student accounts in your classroom.</p>
+                                        <div class="flex items-center text-xs text-gray-500">
+                                            <span>📖 4 min read</span>
+                                            <span class="mx-2">•</span>
+                                            <span>🆕 Updated 2 days ago</span>
+                                        </div>
+                                    </div>
+                                    <span class="bg-purple-100 text-purple-800 px-2 py-1 rounded-full text-xs font-semibold ml-4">Management</span>
+                                </div>
+                            </div>
+
+                            <div class="bg-white rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow">
+                                <div class="flex items-start justify-between">
+                                    <div class="flex-1">
+                                        <h4 class="text-lg font-semibold text-gray-900 mb-2">System requirements and compatibility</h4>
+                                        <p class="text-gray-600 text-sm mb-3">Updated hardware and software requirements for optimal WAIEDU performance.</p>
+                                        <div class="flex items-center text-xs text-gray-500">
+                                            <span>📖 3 min read</span>
+                                            <span class="mx-2">•</span>
+                                            <span>🆕 Updated 1 week ago</span>
+                                        </div>
+                                    </div>
+                                    <span class="bg-gray-100 text-gray-800 px-2 py-1 rounded-full text-xs font-semibold ml-4">Technical</span>
+                                </div>
+                            </div>
+
+                            <div class="bg-white rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow">
+                                <div class="flex items-start justify-between">
+                                    <div class="flex-1">
+                                        <h4 class="text-lg font-semibold text-gray-900 mb-2">Privacy and data protection for schools</h4>
+                                        <p class="text-gray-600 text-sm mb-3">Understanding COPPA, FERPA compliance and student data protection.</p>
+                                        <div class="flex items-center text-xs text-gray-500">
+                                            <span>📖 6 min read</span>
+                                            <span class="mx-2">•</span>
+                                            <span>🆕 Updated 2 weeks ago</span>
+                                        </div>
+                                    </div>
+                                    <span class="bg-red-100 text-red-800 px-2 py-1 rounded-full text-xs font-semibold ml-4">Privacy</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Support -->
+        <section class="py-16 bg-white">
+            <div class="container mx-auto px-6">
+                <div class="max-w-4xl mx-auto">
+                    <div class="bg-gradient-to-r from-blue-600 to-purple-600 rounded-3xl p-8 md:p-12 text-white text-center">
+                        <h2 class="text-3xl font-bold mb-4">Can't Find What You're Looking For?</h2>
+                        <p class="text-xl opacity-90 mb-8">
+                            Our support team is here to help! Get in touch and we'll respond within 2 hours.
+                        </p>
+                        
+                        <div class="grid md:grid-cols-3 gap-6 mb-8">
+                            <div class="bg-white/10 rounded-2xl p-6">
+                                <div class="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                                    <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path>
+                                    </svg>
+                                </div>
+                                <h3 class="text-lg font-semibold mb-2">Live Chat</h3>
+                                <p class="text-sm opacity-80">Available 24/7 for instant help</p>
+                            </div>
+                            
+                            <div class="bg-white/10 rounded-2xl p-6">
+                                <div class="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                                    <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                                    </svg>
+                                </div>
+                                <h3 class="text-lg font-semibold mb-2">Email Support</h3>
+                                <p class="text-sm opacity-80">support@waiedu.live</p>
+                            </div>
+                            
+                            <div class="bg-white/10 rounded-2xl p-6">
+                                <div class="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                                    <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
+                                    </svg>
+                                </div>
+                                <h3 class="text-lg font-semibold mb-2">Phone Support</h3>
+                                <p class="text-sm opacity-80">+84 (0) 123 456 789</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                            <a href="./contact.html" class="bg-white text-blue-600 px-8 py-3 rounded-xl font-semibold hover:shadow-lg transition-all duration-300">
+                                Contact Support
+                            </a>
+                            <button class="border-2 border-white text-white px-8 py-3 rounded-xl font-semibold hover:bg-white hover:text-blue-600 transition-all duration-300">
+                                Schedule a Call
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-gray-300 py-12">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-4 gap-8 mb-8">
+                <!-- Company Info -->
+                <div>
+                    <div class="flex items-center space-x-3 mb-4">
+                        <div class="w-8 h-8 bg-gradient-to-r from-blue-600 to-purple-600 rounded-lg flex items-center justify-center">
+                            <span class="text-white font-bold text-sm">W</span>
+                        </div>
+                        <span class="text-xl font-bold text-white">WAIEDU</span>
+                    </div>
+                    <p class="text-gray-400 mb-4">
+                        Revolutionizing STEM education through AI-powered AR technology.
+                    </p>
+                </div>
+
+                <!-- Help Links -->
+                <div>
+                    <h4 class="text-white font-semibold mb-4">Help & Support</h4>
+                    <ul class="space-y-2">
+                        <li><a href="./help-center.html" class="text-white">Help Center</a></li>
+                        <li><a href="./contact.html" class="text-gray-400 hover:text-white transition-colors">Contact Support</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">System Status</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Community Forum</a></li>
+                    </ul>
+                </div>
+
+                <!-- Legal -->
+                <div>
+                    <h4 class="text-white font-semibold mb-4">Legal</h4>
+                    <ul class="space-y-2">
+                        <li><a href="./privacy-policy.html" class="text-gray-400 hover:text-white transition-colors">Privacy Policy</a></li>
+                        <li><a href="./terms-of-service.html" class="text-gray-400 hover:text-white transition-colors">Terms of Service</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Security</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact -->
+                <div>
+                    <h4 class="text-white font-semibold mb-4">Contact</h4>
+                    <ul class="space-y-2">
+                        <li class="text-gray-400">support@waiedu.live</li>
+                        <li class="text-gray-400">+84 (0) 123 456 789</li>
+                        <li class="text-gray-400">Ho Chi Minh City, Vietnam</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Bottom Bar -->
+            <div class="border-t border-gray-800 pt-8 text-center">
+                <p class="text-gray-400 text-sm">
+                    © 2024 WAIEDU. All rights reserved.
+                </p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

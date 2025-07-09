@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analytics Dashboard - Track Student Progress & Performance | WAIEDU</title>
+    <meta name="description" content="Monitor student progress with WAI EDU's advanced analytics dashboard. Get real-time insights, performance metrics, and detailed reports for effective STEM education.">
+    <meta name="keywords" content="student analytics, learning analytics, education dashboard, progress tracking, performance metrics, STEM analytics, educational data">
+    <meta name="author" content="WAI EDU">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://waiedu.com/analytics-dashboard.html">
+    <meta property="og:title" content="Analytics Dashboard - Track Student Progress & Performance">
+    <meta property="og:description" content="Monitor student progress with WAI EDU's advanced analytics dashboard. Get real-time insights and performance metrics.">
+    <meta property="og:image" content="https://waiedu.com/src/assets/product.png">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://waiedu.com/analytics-dashboard.html">
+    <meta property="twitter:title" content="Analytics Dashboard - Track Student Progress & Performance">
+    <meta property="twitter:description" content="Monitor student progress with WAI EDU's advanced analytics dashboard. Get real-time insights and performance metrics.">
+    <meta property="twitter:image" content="https://waiedu.com/src/assets/product.png">
+
+    <link rel="icon" type="image/svg+xml" href="/public/favicon.svg">
+    <link rel="stylesheet" href="/src/styles/main.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body class="font-inter bg-white">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-sm border-b border-gray-100 sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo -->
+                <div class="flex-shrink-0">
+                    <a href="/" class="flex items-center">
+                        <img src="/src/assets/logo.svg" alt="WAI EDU" class="h-8 w-auto">
+                    </a>
+                </div>
+
+                <!-- Desktop Navigation -->
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-8">
+                        <a href="/" class="text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium transition-colors">Home</a>
+                        <a href="/about.html" class="text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium transition-colors">About</a>
+                        <a href="/learning-platform.html" class="text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium transition-colors">Platform</a>
+                        <a href="/mobile-app.html" class="text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium transition-colors">Mobile App</a>
+                        <a href="/analytics-dashboard.html" class="text-blue-600 px-3 py-2 text-sm font-medium">Analytics</a>
+                        <a href="/help-center.html" class="text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium transition-colors">Help</a>
+                        <a href="/contact.html" class="text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium transition-colors">Contact</a>
+                    </div>
+                </div>
+
+                <!-- CTA Button -->
+                <div class="hidden md:block">
+                    <a href="#demo" class="bg-blue-600 text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-blue-700 transition-colors">
+                        View Demo
+                    </a>
+                </div>
+
+                <!-- Mobile menu button -->
+                <div class="md:hidden">
+                    <button type="button" class="text-gray-500 hover:text-gray-600 focus:outline-none focus:text-gray-600" aria-label="toggle menu">
+                        <svg viewBox="0 0 24 24" class="h-6 w-6 fill-current">
+                            <path fill-rule="evenodd" d="M4 5h16a1 1 0 0 1 0 2H4a1 1 0 1 1 0-2zm0 6h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2zm0 6h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2z"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="bg-gradient-to-br from-blue-50 via-white to-purple-50 py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="lg:grid lg:grid-cols-2 lg:gap-12 items-center">
+                <div class="mb-12 lg:mb-0">
+                    <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6">
+                        Advanced 
+                        <span class="text-blue-600">Analytics Dashboard</span>
+                    </h1>
+                    <p class="text-xl text-gray-600 mb-8 leading-relaxed">
+                        Transform educational data into actionable insights. Monitor student progress, track learning outcomes, and make data-driven decisions with our comprehensive analytics platform.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4 mb-8">
+                        <a href="#demo" class="inline-flex items-center justify-center px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors">
+                            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                            </svg>
+                            Watch Demo
+                        </a>
+                        <a href="/contact.html" class="inline-flex items-center justify-center px-6 py-3 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition-colors">
+                            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path>
+                            </svg>
+                            Schedule Consultation
+                        </a>
+                    </div>
+                    <div class="flex items-center text-sm text-gray-500">
+                        <span class="mr-4">📊 Real-time Analytics</span>
+                        <span class="mr-4">🔒 Privacy Compliant</span>
+                        <span>📈 Actionable Insights</span>
+                    </div>
+                </div>
+                <div class="relative">
+                    <div class="bg-white rounded-2xl shadow-2xl p-6">
+                        <div class="mb-4">
+                            <h3 class="text-lg font-semibold text-gray-900 mb-2">Student Performance Overview</h3>
+                            <div class="grid grid-cols-3 gap-4 mb-4">
+                                <div class="bg-green-50 p-3 rounded-lg text-center">
+                                    <div class="text-2xl font-bold text-green-600">87%</div>
+                                    <div class="text-xs text-gray-600">Completion Rate</div>
+                                </div>
+                                <div class="bg-blue-50 p-3 rounded-lg text-center">
+                                    <div class="text-2xl font-bold text-blue-600">92%</div>
+                                    <div class="text-xs text-gray-600">Accuracy</div>
+                                </div>
+                                <div class="bg-purple-50 p-3 rounded-lg text-center">
+                                    <div class="text-2xl font-bold text-purple-600">4.2h</div>
+                                    <div class="text-xs text-gray-600">Avg. Study Time</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="h-32 bg-gray-100 rounded-lg flex items-center justify-center">
+                            <canvas id="demo-chart" width="300" height="100"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Key Features Section -->
+    <section class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+                    Comprehensive Learning Analytics
+                </h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    Our analytics dashboard provides deep insights into student learning patterns, helping educators make informed decisions and improve learning outcomes.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-gradient-to-br from-blue-50 to-blue-100 rounded-2xl p-8">
+                    <div class="w-12 h-12 bg-blue-600 rounded-lg flex items-center justify-center mb-4">
+                        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-3">Real-time Progress Tracking</h3>
+                    <p class="text-gray-600">Monitor student progress in real-time with live updates on lesson completion, quiz scores, and learning milestones.</p>
+                </div>
+
+                <div class="bg-gradient-to-br from-green-50 to-green-100 rounded-2xl p-8">
+                    <div class="w-12 h-12 bg-green-600 rounded-lg flex items-center justify-center mb-4">
+                        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 8v8m-4-5v5m-4-2v2m-2 4h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-3">Performance Analytics</h3>
+                    <p class="text-gray-600">Analyze student performance with detailed metrics, trend analysis, and comparative insights across subjects and topics.</p>
+                </div>
+
+                <div class="bg-gradient-to-br from-purple-50 to-purple-100 rounded-2xl p-8">
+                    <div class="w-12 h-12 bg-purple-600 rounded-lg flex items-center justify-center mb-4">
+                        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-3">Engagement Metrics</h3>
+                    <p class="text-gray-600">Track student engagement levels, time spent on activities, and interaction patterns with AR content and experiments.</p>
+                </div>
+
+                <div class="bg-gradient-to-br from-red-50 to-red-100 rounded-2xl p-8">
+                    <div class="w-12 h-12 bg-red-600 rounded-lg flex items-center justify-center mb-4">
+                        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v3m0 0v3m0-3h3m-3 0H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-3">Predictive Insights</h3>
+                    <p class="text-gray-600">AI-powered predictions to identify at-risk students and recommend personalized learning paths for improved outcomes.</p>
+                </div>
+
+                <div class="bg-gradient-to-br from-yellow-50 to-yellow-100 rounded-2xl p-8">
+                    <div class="w-12 h-12 bg-yellow-600 rounded-lg flex items-center justify-center mb-4">
+                        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-3">Custom Reports</h3>
+                    <p class="text-gray-600">Generate detailed reports for parents, administrators, and stakeholders with customizable metrics and visualizations.</p>
+                </div>
+
+                <div class="bg-gradient-to-br from-indigo-50 to-indigo-100 rounded-2xl p-8">
+                    <div class="w-12 h-12 bg-indigo-600 rounded-lg flex items-center justify-center mb-4">
+                        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-3">Collaborative Analytics</h3>
+                    <p class="text-gray-600">Share insights across teams, compare classroom performance, and collaborate on improvement strategies.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Dashboard Preview Section -->
+    <section class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+                    Intuitive Dashboard Interface
+                </h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    Experience a clean, user-friendly interface designed for educators, administrators, and parents to easily access and understand learning data.
+                </p>
+            </div>
+
+            <div class="bg-white rounded-2xl shadow-2xl overflow-hidden">
+                <div class="bg-gray-900 px-6 py-4 flex items-center">
+                    <div class="flex space-x-2">
+                        <div class="w-3 h-3 bg-red-500 rounded-full"></div>
+                        <div class="w-3 h-3 bg-yellow-500 rounded-full"></div>
+                        <div class="w-3 h-3 bg-green-500 rounded-full"></div>
+                    </div>
+                    <div class="ml-6 text-white text-sm">WAI EDU Analytics Dashboard</div>
+                </div>
+                
+                <div class="p-8">
+                    <!-- Dashboard Header -->
+                    <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-8">
+                        <div>
+                            <h3 class="text-2xl font-bold text-gray-900 mb-2">Class Overview - Physics 101</h3>
+                            <p class="text-gray-600">Total Students: 32 | Active: 28 | Assignments: 12</p>
+                        </div>
+                        <div class="flex space-x-2 mt-4 md:mt-0">
+                            <button class="px-4 py-2 bg-blue-600 text-white rounded-lg text-sm">Export Report</button>
+                            <button class="px-4 py-2 border border-gray-300 text-gray-700 rounded-lg text-sm">Settings</button>
+                        </div>
+                    </div>
+
+                    <!-- Metrics Cards -->
+                    <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
+                        <div class="bg-gradient-to-r from-blue-50 to-blue-100 p-6 rounded-xl">
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <p class="text-blue-600 text-sm font-medium">Average Score</p>
+                                    <p class="text-3xl font-bold text-blue-900">87.5%</p>
+                                </div>
+                                <div class="w-12 h-12 bg-blue-600 rounded-lg flex items-center justify-center">
+                                    <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path>
+                                    </svg>
+                                </div>
+                            </div>
+                            <p class="text-blue-600 text-sm mt-2">↗ +2.3% from last week</p>
+                        </div>
+
+                        <div class="bg-gradient-to-r from-green-50 to-green-100 p-6 rounded-xl">
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <p class="text-green-600 text-sm font-medium">Completion Rate</p>
+                                    <p class="text-3xl font-bold text-green-900">92.3%</p>
+                                </div>
+                                <div class="w-12 h-12 bg-green-600 rounded-lg flex items-center justify-center">
+                                    <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                    </svg>
+                                </div>
+                            </div>
+                            <p class="text-green-600 text-sm mt-2">↗ +5.1% from last week</p>
+                        </div>
+
+                        <div class="bg-gradient-to-r from-purple-50 to-purple-100 p-6 rounded-xl">
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <p class="text-purple-600 text-sm font-medium">Study Time</p>
+                                    <p class="text-3xl font-bold text-purple-900">4.2h</p>
+                                </div>
+                                <div class="w-12 h-12 bg-purple-600 rounded-lg flex items-center justify-center">
+                                    <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                    </svg>
+                                </div>
+                            </div>
+                            <p class="text-purple-600 text-sm mt-2">↗ +0.8h from last week</p>
+                        </div>
+
+                        <div class="bg-gradient-to-r from-orange-50 to-orange-100 p-6 rounded-xl">
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <p class="text-orange-600 text-sm font-medium">AR Interactions</p>
+                                    <p class="text-3xl font-bold text-orange-900">1,247</p>
+                                </div>
+                                <div class="w-12 h-12 bg-orange-600 rounded-lg flex items-center justify-center">
+                                    <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 15l-2 5L9 9l11 4-5 2zm0 0l5 5M7.188 2.239l.777 2.897M5.136 7.965l-2.898-.777M13.95 4.05l-2.122 2.122m-5.657 5.656l-2.12 2.122"></path>
+                                    </svg>
+                                </div>
+                            </div>
+                            <p class="text-orange-600 text-sm mt-2">↗ +156 from last week</p>
+                        </div>
+                    </div>
+
+                    <!-- Charts Section -->
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                        <div class="bg-white border border-gray-200 rounded-xl p-6">
+                            <h4 class="text-lg font-semibold text-gray-900 mb-4">Weekly Progress Trend</h4>
+                            <div class="h-64 bg-gray-50 rounded-lg flex items-center justify-center">
+                                <canvas id="progress-chart" width="400" height="200"></canvas>
+                            </div>
+                        </div>
+
+                        <div class="bg-white border border-gray-200 rounded-xl p-6">
+                            <h4 class="text-lg font-semibold text-gray-900 mb-4">Subject Performance</h4>
+                            <div class="h-64 bg-gray-50 rounded-lg flex items-center justify-center">
+                                <canvas id="subject-chart" width="400" height="200"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+                    Measurable Learning Outcomes
+                </h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    Schools using our analytics dashboard report significant improvements in student engagement, performance, and learning outcomes.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="text-center p-6">
+                    <div class="text-4xl font-bold text-blue-600 mb-2">35%</div>
+                    <div class="text-lg font-semibold text-gray-900 mb-2">Improvement in Test Scores</div>
+                    <p class="text-gray-600">Students show significant improvement in standardized test scores within the first semester.</p>
+                </div>
+
+                <div class="text-center p-6">
+                    <div class="text-4xl font-bold text-green-600 mb-2">78%</div>
+                    <div class="text-lg font-semibold text-gray-900 mb-2">Increase in Engagement</div>
+                    <p class="text-gray-600">Higher student engagement rates with interactive AR content and real-time feedback.</p>
+                </div>
+
+                <div class="text-center p-6">
+                    <div class="text-4xl font-bold text-purple-600 mb-2">92%</div>
+                    <div class="text-lg font-semibold text-gray-900 mb-2">Teacher Satisfaction</div>
+                    <p class="text-gray-600">Educators appreciate the detailed insights and ability to personalize learning paths.</p>
+                </div>
+
+                <div class="text-center p-6">
+                    <div class="text-4xl font-bold text-red-600 mb-2">45%</div>
+                    <div class="text-lg font-semibold text-gray-900 mb-2">Reduction in Dropouts</div>
+                    <p class="text-gray-600">Early identification of at-risk students helps prevent academic difficulties.</p>
+                </div>
+
+                <div class="text-center p-6">
+                    <div class="text-4xl font-bold text-yellow-600 mb-2">60%</div>
+                    <div class="text-lg font-semibold text-gray-900 mb-2">Time Saved on Grading</div>
+                    <p class="text-gray-600">Automated assessment and reporting saves valuable teacher time for instruction.</p>
+                </div>
+
+                <div class="text-center p-6">
+                    <div class="text-4xl font-bold text-indigo-600 mb-2">89%</div>
+                    <div class="text-lg font-semibold text-gray-900 mb-2">Parent Engagement</div>
+                    <p class="text-gray-600">Parents stay informed with regular progress updates and detailed reports.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Demo CTA Section -->
+    <section id="demo" class="py-20 bg-gradient-to-r from-blue-600 to-purple-600">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">
+                Experience the Power of Data-Driven Education
+            </h2>
+            <p class="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
+                Schedule a personalized demo to see how our analytics dashboard can transform your educational insights and improve student outcomes.
+            </p>
+            
+            <div class="flex flex-col sm:flex-row gap-4 justify-center mb-8">
+                <a href="/contact.html" class="inline-flex items-center justify-center px-8 py-4 bg-white text-blue-600 rounded-xl hover:bg-gray-100 transition-colors text-lg font-medium">
+                    <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3a2 2 0 012-2h4a2 2 0 012 2v4m-6 4l6 6m0-6l-6 6"></path>
+                    </svg>
+                    Schedule Demo
+                </a>
+                <a href="/learning-platform.html" class="inline-flex items-center justify-center px-8 py-4 border-2 border-white text-white rounded-xl hover:bg-white hover:text-blue-600 transition-colors text-lg font-medium">
+                    <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                    </svg>
+                    Learn More
+                </a>
+            </div>
+
+            <div class="flex items-center justify-center text-blue-100 text-sm space-x-6">
+                <span class="flex items-center">
+                    <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                    </svg>
+                    Free 30-day Trial
+                </span>
+                <span class="flex items-center">
+                    <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                    </svg>
+                    No Setup Fees
+                </span>
+                <span class="flex items-center">
+                    <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                    </svg>
+                    Expert Support
+                </span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div class="col-span-1 md:col-span-2">
+                    <img src="/src/assets/logo.svg" alt="WAI EDU" class="h-8 mb-4 filter invert">
+                    <p class="text-gray-400 mb-4 max-w-md">
+                        Transforming STEM education with cutting-edge AR technology and comprehensive analytics solutions.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M22.46 6c-.77.35-1.6.58-2.46.69.88-.53 1.56-1.37 1.88-2.38-.83.5-1.75.85-2.72 1.05C18.37 4.5 17.26 4 16 4c-2.35 0-4.27 1.92-4.27 4.29 0 .34.04.67.11.98C8.28 9.09 5.11 7.38 3 4.79c-.37.63-.58 1.37-.58 2.15 0 1.49.75 2.81 1.91 3.56-.71 0-1.37-.2-1.95-.5v.03c0 2.08 1.48 3.82 3.44 4.21a4.22 4.22 0 0 1-1.93.07 4.28 4.28 0 0 0 4 2.98 8.521 8.521 0 0 1-5.33 1.84c-.34 0-.68-.02-1.02-.06C3.44 20.29 5.7 21 8.12 21 16 21 20.33 14.46 20.33 8.79c0-.19 0-.37-.01-.56.84-.6 1.56-1.36 2.14-2.23z"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Products</h3>
+                    <ul class="space-y-2">
+                        <li><a href="/learning-platform.html" class="text-gray-400 hover:text-white transition-colors">Learning Platform</a></li>
+                        <li><a href="/mobile-app.html" class="text-gray-400 hover:text-white transition-colors">Mobile App</a></li>
+                        <li><a href="/analytics-dashboard.html" class="text-gray-400 hover:text-white transition-colors">Analytics Dashboard</a></li>
+                        <li><a href="/api-documentation.html" class="text-gray-400 hover:text-white transition-colors">API Documentation</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Support</h3>
+                    <ul class="space-y-2">
+                        <li><a href="/help-center.html" class="text-gray-400 hover:text-white transition-colors">Help Center</a></li>
+                        <li><a href="/contact.html" class="text-gray-400 hover:text-white transition-colors">Contact Us</a></li>
+                        <li><a href="/privacy-policy.html" class="text-gray-400 hover:text-white transition-colors">Privacy Policy</a></li>
+                        <li><a href="/terms-of-service.html" class="text-gray-400 hover:text-white transition-colors">Terms of Service</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-800 mt-12 pt-8 text-center text-gray-400">
+                <p>&copy; 2024 WAI EDU. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/src/js/main.js"></script>
+    <script>
+        // Demo charts initialization
+        document.addEventListener('DOMContentLoaded', function() {
+            // Demo chart in hero section
+            const demoCtx = document.getElementById('demo-chart');
+            if (demoCtx) {
+                new Chart(demoCtx, {
+                    type: 'line',
+                    data: {
+                        labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri'],
+                        datasets: [{
+                            label: 'Progress',
+                            data: [85, 87, 89, 88, 92],
+                            borderColor: '#3B82F6',
+                            backgroundColor: 'rgba(59, 130, 246, 0.1)',
+                            tension: 0.4
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        plugins: {
+                            legend: {
+                                display: false
+                            }
+                        },
+                        scales: {
+                            y: {
+                                display: false
+                            },
+                            x: {
+                                display: false
+                            }
+                        }
+                    }
+                });
+            }
+
+            // Progress chart
+            const progressCtx = document.getElementById('progress-chart');
+            if (progressCtx) {
+                new Chart(progressCtx, {
+                    type: 'line',
+                    data: {
+                        labels: ['Week 1', 'Week 2', 'Week 3', 'Week 4', 'Week 5', 'Week 6'],
+                        datasets: [{
+                            label: 'Class Average',
+                            data: [75, 78, 82, 85, 87, 90],
+                            borderColor: '#3B82F6',
+                            backgroundColor: 'rgba(59, 130, 246, 0.1)',
+                            tension: 0.4
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false
+                    }
+                });
+            }
+
+            // Subject chart
+            const subjectCtx = document.getElementById('subject-chart');
+            if (subjectCtx) {
+                new Chart(subjectCtx, {
+                    type: 'bar',
+                    data: {
+                        labels: ['Physics', 'Chemistry', 'Math', 'Biology'],
+                        datasets: [{
+                            label: 'Average Score',
+                            data: [87, 92, 85, 89],
+                            backgroundColor: [
+                                '#3B82F6',
+                                '#10B981',
+                                '#F59E0B',
+                                '#EF4444'
+                            ]
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>

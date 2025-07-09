@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learning Platform - WAIEDU | AI-Powered AR Education</title>
+    <meta name="description" content="Discover WAIEDU's comprehensive learning platform featuring AI-powered personalized learning, immersive AR simulations, and real-time analytics for STEM education.">
+    <meta name="keywords" content="WAIEDU learning platform, AR education, AI learning, STEM platform, personalized learning, educational technology">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://waiedu.live/learning-platform.html">
+    <meta property="og:title" content="WAIEDU Learning Platform - AI-Powered AR Education">
+    <meta property="og:description" content="Experience the future of STEM education with our comprehensive learning platform.">
+    <meta property="og:image" content="https://waiedu.live/assets/og-platform.jpg">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="./src/styles/main.css">
+</head>
+
+<body class="font-sans antialiased">
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full bg-white/80 backdrop-blur-lg border-b border-gray-200 z-50">
+        <div class="container mx-auto px-6">
+            <div class="flex items-center justify-between h-16">
+                <!-- Logo -->
+                <div class="flex items-center space-x-3">
+                    <div class="w-8 h-8 bg-gradient-to-r from-blue-600 to-purple-600 rounded-lg flex items-center justify-center">
+                        <span class="text-white font-bold text-sm">W</span>
+                    </div>
+                    <span class="text-xl font-bold text-gray-900">WAIEDU</span>
+                </div>
+
+                <!-- Desktop Navigation -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="./index.html" class="text-gray-600 hover:text-blue-600 transition-colors font-medium">Home</a>
+                    <a href="./about.html" class="text-gray-600 hover:text-blue-600 transition-colors font-medium">About</a>
+                    <div class="relative group">
+                        <button class="text-blue-600 font-medium flex items-center">
+                            Products
+                            <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </button>
+                        <div class="absolute top-full left-0 mt-2 w-48 bg-white rounded-lg shadow-lg border border-gray-200 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+                            <a href="./learning-platform.html" class="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600 rounded-t-lg">Learning Platform</a>
+                            <a href="./mobile-app.html" class="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600">Mobile App</a>
+                            <a href="./analytics-dashboard.html" class="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600">Analytics Dashboard</a>
+                            <a href="./api-documentation.html" class="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600 rounded-b-lg">API Documentation</a>
+                        </div>
+                    </div>
+                    <a href="./contact.html" class="text-gray-600 hover:text-blue-600 transition-colors font-medium">Contact</a>
+                </div>
+
+                <!-- CTA Button -->
+                <div class="hidden md:block">
+                    <a href="./contact.html" class="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-6 py-2 rounded-lg font-semibold hover:shadow-lg transition-all duration-300 transform hover:-translate-y-0.5">
+                        Try Platform
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main class="pt-16">
+        <!-- Hero Section -->
+        <section class="py-24 bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50">
+            <div class="container mx-auto px-6">
+                <div class="max-w-6xl mx-auto">
+                    <div class="grid lg:grid-cols-2 gap-12 items-center">
+                        <div>
+                            <h1 class="text-5xl lg:text-6xl font-bold text-gray-900 mb-6">
+                                Learning Platform
+                                <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">
+                                    Reimagined
+                                </span>
+                            </h1>
+                            <p class="text-xl text-gray-600 mb-8 leading-relaxed">
+                                Experience the future of STEM education with our comprehensive platform that combines AI-powered personalization, immersive AR visualizations, and real-time analytics to transform how students learn and teachers teach.
+                            </p>
+                            
+                            <!-- Key Features -->
+                            <div class="grid grid-cols-2 gap-4 mb-8">
+                                <div class="flex items-center space-x-3">
+                                    <div class="w-8 h-8 bg-green-100 rounded-full flex items-center justify-center">
+                                        <svg class="w-4 h-4 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                        </svg>
+                                    </div>
+                                    <span class="text-gray-700 font-medium">AI-Powered Learning</span>
+                                </div>
+                                <div class="flex items-center space-x-3">
+                                    <div class="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center">
+                                        <svg class="w-4 h-4 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                        </svg>
+                                    </div>
+                                    <span class="text-gray-700 font-medium">AR Simulations</span>
+                                </div>
+                                <div class="flex items-center space-x-3">
+                                    <div class="w-8 h-8 bg-purple-100 rounded-full flex items-center justify-center">
+                                        <svg class="w-4 h-4 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                        </svg>
+                                    </div>
+                                    <span class="text-gray-700 font-medium">Real-time Analytics</span>
+                                </div>
+                                <div class="flex items-center space-x-3">
+                                    <div class="w-8 h-8 bg-orange-100 rounded-full flex items-center justify-center">
+                                        <svg class="w-4 h-4 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                        </svg>
+                                    </div>
+                                    <span class="text-gray-700 font-medium">Cloud-Based</span>
+                                </div>
+                            </div>
+
+                            <div class="flex flex-col sm:flex-row gap-4">
+                                <a href="#demo" class="bg-blue-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors">
+                                    Watch Demo
+                                </a>
+                                <a href="./contact.html" class="border border-gray-300 text-gray-700 px-8 py-3 rounded-lg font-semibold hover:bg-gray-50 transition-colors">
+                                    Request Trial
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="relative">
+                            <div class="bg-gradient-to-br from-blue-100 to-purple-100 rounded-3xl p-8 aspect-square flex items-center justify-center">
+                                <div class="text-center">
+                                    <div class="w-32 h-32 bg-gradient-to-r from-blue-600 to-purple-600 rounded-3xl flex items-center justify-center mx-auto mb-6">
+                                        <svg class="w-16 h-16 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                                        </svg>
+                                    </div>
+                                    <h3 class="text-2xl font-bold text-gray-900 mb-2">Interactive Learning</h3>
+                                    <p class="text-gray-600">Experience concepts in 3D</p>
+                                </div>
+                            </div>
+                            <!-- Floating Elements -->
+                            <div class="absolute -top-4 -right-4 w-20 h-20 bg-yellow-200 rounded-full flex items-center justify-center">
+                                <svg class="w-8 h-8 text-yellow-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                                </svg>
+                            </div>
+                            <div class="absolute -bottom-4 -left-4 w-16 h-16 bg-green-200 rounded-full flex items-center justify-center">
+                                <svg class="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Core Features -->
+        <section class="py-20 bg-white">
+            <div class="container mx-auto px-6">
+                <div class="max-w-6xl mx-auto">
+                    <div class="text-center mb-16">
+                        <h2 class="text-4xl font-bold text-gray-900 mb-6">Platform Core Features</h2>
+                        <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                            Discover the powerful features that make WAIEDU the most advanced STEM education platform
+                        </p>
+                    </div>
+
+                    <div class="grid md:grid-cols-3 gap-8">
+                        <!-- AI-Powered Personalization -->
+                        <div class="bg-gradient-to-br from-blue-50 to-blue-100 rounded-2xl p-8">
+                            <div class="w-16 h-16 bg-blue-600 rounded-2xl flex items-center justify-center mb-6">
+                                <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
+                                </svg>
+                            </div>
+                            <h3 class="text-2xl font-bold text-gray-900 mb-4">AI-Powered Personalization</h3>
+                            <p class="text-gray-600 mb-6">
+                                Advanced AI algorithms analyze student performance and learning patterns to create personalized learning paths that adapt in real-time.
+                            </p>
+                            <ul class="space-y-2 text-sm">
+                                <li class="flex items-center">
+                                    <svg class="w-4 h-4 text-green-600 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                    </svg>
+                                    Adaptive learning algorithms
+                                </li>
+                                <li class="flex items-center">
+                                    <svg class="w-4 h-4 text-green-600 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                    </svg>
+                                    Individual learning preferences
+                                </li>
+                                <li class="flex items-center">
+                                    <svg class="w-4 h-4 text-green-600 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                    </svg>
+                                    Real-time difficulty adjustment
+                                </li>
+                                <li class="flex items-center">
+                                    <svg class="w-4 h-4 text-green-600 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                    </svg>
+                                    Predictive performance insights
+                                </li>
+                            </ul>
+                        </div>
+
+                        <!-- Immersive AR Learning -->
+                        <div class="bg-gradient-to-br from-purple-50 to-purple-100 rounded-2xl p-8">
+                            <div class="w-16 h-16 bg-purple-600 rounded-2xl flex items-center justify-center mb-6">
+                                <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path>
+                                </svg>
+                            </div>
+                            <h3 class="text-2xl font-bold text-gray-900 mb-4">Immersive AR Learning</h3>
+                            <p class="text-gray-600 mb-6">
+                                Transform abstract STEM concepts into interactive 3D models that students can manipulate, explore, and understand through direct experience.
+                            </p>
+                            <ul class="space-y-2 text-sm">
+                                <li class="flex items-center">
+                                    <svg class="w-4 h-4 text-green-600 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                    </svg>
+                                    3D molecular structures
+                                </li>
+                                <li class="flex items-center">
+                                    <svg class="w-4 h-4 text-green-600 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                    </svg>
+                                    Physics simulations
+                                </li>
+                                <li class="flex items-center">
+                                    <svg class="w-4 h-4 text-green-600 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                    </svg>
+                                    Interactive experiments
+                                </li>
+                                <li class="flex items-center">
+                                    <svg class="w-4 h-4 text-green-600 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                    </svg>
+                                    Cross-platform compatibility
+                                </li>
+                            </ul>
+                        </div>
+
+                        <!-- Real-time Analytics -->
+                        <div class="bg-gradient-to-br from-green-50 to-green-100 rounded-2xl p-8">
+                            <div class="w-16 h-16 bg-green-600 rounded-2xl flex items-center justify-center mb-6">
+                                <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
+                                </svg>
+                            </div>
+                            <h3 class="text-2xl font-bold text-gray-900 mb-4">Real-time Analytics</h3>
+                            <p class="text-gray-600 mb-6">
+                                Comprehensive analytics dashboard provides teachers and administrators with actionable insights into student progress and learning effectiveness.
+                            </p>
+                            <ul class="space-y-2 text-sm">
+                                <li class="flex items-center">
+                                    <svg class="w-4 h-4 text-green-600 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                    </svg>
+                                    Performance tracking
+                                </li>
+                                <li class="flex items-center">
+                                    <svg class="w-4 h-4 text-green-600 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                    </svg>
+                                    Engagement metrics
+                                </li>
+                                <li class="flex items-center">
+                                    <svg class="w-4 h-4 text-green-600 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                    </svg>
+                                    Learning outcome reports
+                                </li>
+                                <li class="flex items-center">
+                                    <svg class="w-4 h-4 text-green-600 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                    </svg>
+                                    Automated assessments
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Platform Overview -->
+        <section class="py-20 bg-gray-50">
+            <div class="container mx-auto px-6">
+                <div class="max-w-6xl mx-auto">
+                    <div class="text-center mb-16">
+                        <h2 class="text-4xl font-bold text-gray-900 mb-6">Complete Learning Ecosystem</h2>
+                        <p class="text-xl text-gray-600">
+                            A comprehensive platform designed for modern education
+                        </p>
+                    </div>
+
+                    <div class="grid lg:grid-cols-2 gap-16 items-center">
+                        <div>
+                            <h3 class="text-3xl font-bold text-gray-900 mb-6">For Students</h3>
+                            <div class="space-y-6">
+                                <div class="flex items-start space-x-4">
+                                    <div class="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0">
+                                        <svg class="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
+                                        </svg>
+                                    </div>
+                                    <div>
+                                        <h4 class="text-lg font-semibold text-gray-900 mb-2">Personalized Learning Paths</h4>
+                                        <p class="text-gray-600">AI-driven curriculum that adapts to your learning style and pace for optimal understanding.</p>
+                                    </div>
+                                </div>
+
+                                <div class="flex items-start space-x-4">
+                                    <div class="w-10 h-10 bg-purple-100 rounded-full flex items-center justify-center flex-shrink-0">
+                                        <svg class="w-5 h-5 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                                        </svg>
+                                    </div>
+                                    <div>
+                                        <h4 class="text-lg font-semibold text-gray-900 mb-2">Interactive AR Experiments</h4>
+                                        <p class="text-gray-600">Visualize complex concepts in 3D and conduct virtual experiments safely and effectively.</p>
+                                    </div>
+                                </div>
+
+                                <div class="flex items-start space-x-4">
+                                    <div class="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center flex-shrink-0">
+                                        <svg class="w-5 h-5 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
+                                        </svg>
+                                    </div>
+                                    <div>
+                                        <h4 class="text-lg font-semibold text-gray-900 mb-2">Progress Tracking</h4>
+                                        <p class="text-gray-600">Monitor your learning journey with detailed analytics and achievement milestones.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <h3 class="text-3xl font-bold text-gray-900 mb-6">For Teachers</h3>
+                            <div class="space-y-6">
+                                <div class="flex items-start space-x-4">
+                                    <div class="w-10 h-10 bg-orange-100 rounded-full flex items-center justify-center flex-shrink-0">
+                                        <svg class="w-5 h-5 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197m13.5-5a2.5 2.5 0 11-5 0 2.5 2.5 0 015 0z"></path>
+                                        </svg>
+                                    </div>
+                                    <div>
+                                        <h4 class="text-lg font-semibold text-gray-900 mb-2">Classroom Management</h4>
+                                        <p class="text-gray-600">Comprehensive tools to manage students, assignments, and classroom activities efficiently.</p>
+                                    </div>
+                                </div>
+
+                                <div class="flex items-start space-x-4">
+                                    <div class="w-10 h-10 bg-red-100 rounded-full flex items-center justify-center flex-shrink-0">
+                                        <svg class="w-5 h-5 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"></path>
+                                        </svg>
+                                    </div>
+                                    <div>
+                                        <h4 class="text-lg font-semibold text-gray-900 mb-2">Assessment Tools</h4>
+                                        <p class="text-gray-600">Create, distribute, and grade assignments with automated feedback and detailed analytics.</p>
+                                    </div>
+                                </div>
+
+                                <div class="flex items-start space-x-4">
+                                    <div class="w-10 h-10 bg-indigo-100 rounded-full flex items-center justify-center flex-shrink-0">
+                                        <svg class="w-5 h-5 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path>
+                                        </svg>
+                                    </div>
+                                    <div>
+                                        <h4 class="text-lg font-semibold text-gray-900 mb-2">Content Library</h4>
+                                        <p class="text-gray-600">Access thousands of pre-built lessons, activities, and resources aligned with curriculum standards.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Technical Specifications -->
+        <section class="py-20 bg-white">
+            <div class="container mx-auto px-6">
+                <div class="max-w-6xl mx-auto">
+                    <div class="text-center mb-16">
+                        <h2 class="text-4xl font-bold text-gray-900 mb-6">Technical Specifications</h2>
+                        <p class="text-xl text-gray-600">
+                            Built on cutting-edge technology for reliability and performance
+                        </p>
+                    </div>
+
+                    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                        <div class="text-center">
+                            <div class="w-16 h-16 bg-blue-100 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                                <svg class="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z"></path>
+                                </svg>
+                            </div>
+                            <h3 class="text-lg font-semibold text-gray-900 mb-2">Cloud Infrastructure</h3>
+                            <p class="text-gray-600 text-sm">99.9% uptime guarantee with global CDN</p>
+                        </div>
+
+                        <div class="text-center">
+                            <div class="w-16 h-16 bg-green-100 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                                <svg class="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path>
+                                </svg>
+                            </div>
+                            <h3 class="text-lg font-semibold text-gray-900 mb-2">Enterprise Security</h3>
+                            <p class="text-gray-600 text-sm">SOC 2 certified with end-to-end encryption</p>
+                        </div>
+
+                        <div class="text-center">
+                            <div class="w-16 h-16 bg-purple-100 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                                <svg class="w-8 h-8 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                                </svg>
+                            </div>
+                            <h3 class="text-lg font-semibold text-gray-900 mb-2">Cross-Platform</h3>
+                            <p class="text-gray-600 text-sm">Web, iOS, Android, and desktop support</p>
+                        </div>
+
+                        <div class="text-center">
+                            <div class="w-16 h-16 bg-orange-100 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                                <svg class="w-8 h-8 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                                </svg>
+                            </div>
+                            <h3 class="text-lg font-semibold text-gray-900 mb-2">AI Engine</h3>
+                            <p class="text-gray-600 text-sm">Advanced machine learning algorithms</p>
+                        </div>
+                    </div>
+
+                    <!-- System Requirements -->
+                    <div class="mt-16 bg-gray-50 rounded-2xl p-8">
+                        <h3 class="text-2xl font-bold text-gray-900 mb-8 text-center">System Requirements</h3>
+                        <div class="grid md:grid-cols-3 gap-8">
+                            <div>
+                                <h4 class="text-lg font-semibold text-gray-800 mb-4">Minimum Requirements</h4>
+                                <ul class="space-y-2 text-sm text-gray-600">
+                                    <li>• 4GB RAM</li>
+                                    <li>• 2GB Storage</li>
+                                    <li>• WebGL 2.0 Support</li>
+                                    <li>• Chrome 90+, Safari 14+, Firefox 88+</li>
+                                    <li>• Stable Internet Connection</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h4 class="text-lg font-semibold text-gray-800 mb-4">Recommended</h4>
+                                <ul class="space-y-2 text-sm text-gray-600">
+                                    <li>• 8GB RAM</li>
+                                    <li>• 5GB Storage</li>
+                                    <li>• Dedicated Graphics Card</li>
+                                    <li>• Latest Browser Versions</li>
+                                    <li>• High-Speed Internet (10Mbps+)</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h4 class="text-lg font-semibold text-gray-800 mb-4">AR Features</h4>
+                                <ul class="space-y-2 text-sm text-gray-600">
+                                    <li>• ARCore/ARKit Support</li>
+                                    <li>• Device Camera Access</li>
+                                    <li>• Gyroscope & Accelerometer</li>
+                                    <li>• iOS 12+ / Android 7.0+</li>
+                                    <li>• GPU with OpenGL ES 3.0</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Demo Section -->
+        <section id="demo" class="py-20 bg-gradient-to-r from-blue-600 to-purple-600 text-white">
+            <div class="container mx-auto px-6">
+                <div class="max-w-4xl mx-auto text-center">
+                    <h2 class="text-4xl md:text-5xl font-bold mb-6">Experience the Platform</h2>
+                    <p class="text-xl text-blue-100 mb-8">
+                        See WAIEDU in action with our interactive demo. Discover how our platform transforms STEM education.
+                    </p>
+                    
+                    <div class="bg-white/10 rounded-3xl p-8 mb-8">
+                        <div class="aspect-video bg-white/20 rounded-2xl flex items-center justify-center mb-6">
+                            <div class="text-center">
+                                <div class="w-20 h-20 bg-white/30 rounded-full flex items-center justify-center mx-auto mb-4">
+                                    <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
+                                        <path d="M8 5v14l11-7z"/>
+                                    </svg>
+                                </div>
+                                <p class="text-white font-semibold">Interactive Platform Demo</p>
+                                <p class="text-blue-100 text-sm">Click to watch our 3-minute overview</p>
+                            </div>
+                        </div>
+                        
+                        <div class="grid md:grid-cols-3 gap-4 text-sm">
+                            <div class="bg-white/10 rounded-lg p-4">
+                                <div class="font-semibold mb-2">✨ AI Personalization</div>
+                                <div class="text-blue-100">See how content adapts to learning styles</div>
+                            </div>
+                            <div class="bg-white/10 rounded-lg p-4">
+                                <div class="font-semibold mb-2">🔬 AR Simulations</div>
+                                <div class="text-blue-100">Explore 3D molecular structures</div>
+                            </div>
+                            <div class="bg-white/10 rounded-lg p-4">
+                                <div class="font-semibold mb-2">📊 Real-time Analytics</div>
+                                <div class="text-blue-100">Track student progress instantly</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                        <a href="./contact.html" class="bg-white text-blue-600 px-8 py-3 rounded-lg font-semibold hover:shadow-xl transition-all duration-300">
+                            Request Live Demo
+                        </a>
+                        <a href="./contact.html" class="border-2 border-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-white hover:text-blue-600 transition-all duration-300">
+                            Start Free Trial
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Pricing Preview -->
+        <section class="py-20 bg-gray-50">
+            <div class="container mx-auto px-6">
+                <div class="max-w-4xl mx-auto text-center">
+                    <h2 class="text-4xl font-bold text-gray-900 mb-6">Simple, Transparent Pricing</h2>
+                    <p class="text-xl text-gray-600 mb-12">
+                        Choose the plan that fits your institution's needs
+                    </p>
+                    
+                    <div class="grid md:grid-cols-3 gap-8">
+                        <!-- Starter -->
+                        <div class="bg-white rounded-2xl p-8 shadow-lg">
+                            <h3 class="text-2xl font-bold text-gray-900 mb-4">Starter</h3>
+                            <div class="text-4xl font-bold text-blue-600 mb-6">$5<span class="text-lg text-gray-500">/student/month</span></div>
+                            <ul class="space-y-3 mb-8 text-left">
+                                <li class="flex items-center">
+                                    <svg class="w-5 h-5 text-green-600 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                    </svg>
+                                    Basic AR simulations
+                                </li>
+                                <li class="flex items-center">
+                                    <svg class="w-5 h-5 text-green-600 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                    </svg>
+                                    Up to 50 students
+                                </li>
+                                <li class="flex items-center">
+                                    <svg class="w-5 h-5 text-green-600 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                    </svg>
+                                    Email support
+                                </li>
+                            </ul>
+                            <button class="w-full border border-gray-300 text-gray-700 py-3 rounded-lg font-semibold hover:bg-gray-50 transition-colors">
+                                Get Started
+                            </button>
+                        </div>
+
+                        <!-- Professional -->
+                        <div class="bg-gradient-to-br from-blue-600 to-purple-600 text-white rounded-2xl p-8 shadow-xl transform scale-105">
+                            <h3 class="text-2xl font-bold mb-4">Professional</h3>
+                            <div class="text-4xl font-bold mb-6">$12<span class="text-lg opacity-80">/student/month</span></div>
+                            <ul class="space-y-3 mb-8 text-left">
+                                <li class="flex items-center">
+                                    <svg class="w-5 h-5 text-white mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                    </svg>
+                                    Full AR experience
+                                </li>
+                                <li class="flex items-center">
+                                    <svg class="w-5 h-5 text-white mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                    </svg>
+                                    AI-powered personalization
+                                </li>
+                                <li class="flex items-center">
+                                    <svg class="w-5 h-5 text-white mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                    </svg>
+                                    Analytics dashboard
+                                </li>
+                                <li class="flex items-center">
+                                    <svg class="w-5 h-5 text-white mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                    </svg>
+                                    Priority support
+                                </li>
+                            </ul>
+                            <button class="w-full bg-white text-blue-600 py-3 rounded-lg font-semibold hover:shadow-lg transition-all duration-300">
+                                Most Popular
+                            </button>
+                        </div>
+
+                        <!-- Enterprise -->
+                        <div class="bg-white rounded-2xl p-8 shadow-lg">
+                            <h3 class="text-2xl font-bold text-gray-900 mb-4">Enterprise</h3>
+                            <div class="text-4xl font-bold text-gray-900 mb-6">Custom</div>
+                            <ul class="space-y-3 mb-8 text-left">
+                                <li class="flex items-center">
+                                    <svg class="w-5 h-5 text-green-600 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                    </svg>
+                                    Unlimited students
+                                </li>
+                                <li class="flex items-center">
+                                    <svg class="w-5 h-5 text-green-600 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                    </svg>
+                                    Custom integrations
+                                </li>
+                                <li class="flex items-center">
+                                    <svg class="w-5 h-5 text-green-600 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                    </svg>
+                                    Dedicated support
+                                </li>
+                            </ul>
+                            <button class="w-full border border-gray-300 text-gray-700 py-3 rounded-lg font-semibold hover:bg-gray-50 transition-colors">
+                                Contact Sales
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-gray-300 py-12">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-4 gap-8 mb-8">
+                <!-- Company Info -->
+                <div>
+                    <div class="flex items-center space-x-3 mb-4">
+                        <div class="w-8 h-8 bg-gradient-to-r from-blue-600 to-purple-600 rounded-lg flex items-center justify-center">
+                            <span class="text-white font-bold text-sm">W</span>
+                        </div>
+                        <span class="text-xl font-bold text-white">WAIEDU</span>
+                    </div>
+                    <p class="text-gray-400 mb-4">
+                        Revolutionizing STEM education through AI-powered AR technology.
+                    </p>
+                </div>
+
+                <!-- Products -->
+                <div>
+                    <h4 class="text-white font-semibold mb-4">Products</h4>
+                    <ul class="space-y-2">
+                        <li><a href="./learning-platform.html" class="text-white">Learning Platform</a></li>
+                        <li><a href="./mobile-app.html" class="text-gray-400 hover:text-white transition-colors">Mobile App</a></li>
+                        <li><a href="./analytics-dashboard.html" class="text-gray-400 hover:text-white transition-colors">Analytics Dashboard</a></li>
+                        <li><a href="./api-documentation.html" class="text-gray-400 hover:text-white transition-colors">API Documentation</a></li>
+                    </ul>
+                </div>
+
+                <!-- Support -->
+                <div>
+                    <h4 class="text-white font-semibold mb-4">Support</h4>
+                    <ul class="space-y-2">
+                        <li><a href="./help-center.html" class="text-gray-400 hover:text-white transition-colors">Help Center</a></li>
+                        <li><a href="./contact.html" class="text-gray-400 hover:text-white transition-colors">Contact Support</a></li>
+                        <li><a href="./privacy-policy.html" class="text-gray-400 hover:text-white transition-colors">Privacy Policy</a></li>
+                        <li><a href="./terms-of-service.html" class="text-gray-400 hover:text-white transition-colors">Terms of Service</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact -->
+                <div>
+                    <h4 class="text-white font-semibold mb-4">Contact</h4>
+                    <ul class="space-y-2">
+                        <li class="text-gray-400">contact@waiedu.live</li>
+                        <li class="text-gray-400">+84 (0) 123 456 789</li>
+                        <li class="text-gray-400">Ho Chi Minh City, Vietnam</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Bottom Bar -->
+            <div class="border-t border-gray-800 pt-8 text-center">
+                <p class="text-gray-400 text-sm">
+                    © 2024 WAIEDU. All rights reserved.
+                </p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
